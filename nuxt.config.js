@@ -1,10 +1,11 @@
-module.exports = {
-  mode: 'spa',
+
+export default {
+  mode: 'universal',
   /*
-   ** Headers of the page
-   */
+  ** Headers of the page
+  */
   head: {
-    title: process.env.npm_package_name || '',
+    title: 'Werkzeug-, Geräte- & Partyzubehör J. Popken - Wir haben für jeden was',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -14,23 +15,31 @@ module.exports = {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
+    bodyAttrs: {
+      'itemtype': 'http://schema.org/WebPage',
+      'itemscope': 'itemscope',
+      'lang': 'de'
+    }
   },
   /*
-   ** Customize the progress-bar color
-   */
+  ** Customize the progress-bar color
+  */
   loading: { color: '#fff' },
   /*
-   ** Global CSS
-   */
-  css: [],
+  ** Global CSS
+  */
+  css: [
+    '@/assets/styles/main.scss'
+  ],
   /*
-   ** Plugins to load before mounting the App
-   */
-  plugins: [],
+  ** Plugins to load before mounting the App
+  */
+  plugins: [
+  ],
   /*
-   ** Nuxt.js dev-modules
-   */
+  ** Nuxt.js dev-modules
+  */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
@@ -38,27 +47,26 @@ module.exports = {
     '@nuxtjs/stylelint-module'
   ],
   /*
-   ** Nuxt.js modules
-   */
+  ** Nuxt.js modules
+  */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
-    '@nuxtjs/pwa',
-    // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/axios'
   ],
   /*
-   ** Axios module configuration
-   ** See https://axios.nuxtjs.org/options
-   */
-  axios: {},
+  ** Axios module configuration
+  ** See https://axios.nuxtjs.org/options
+  */
+  axios: {
+  },
   /*
-   ** Build configuration
-   */
+  ** Build configuration
+  */
   build: {
     /*
-     ** You can extend webpack config here
-     */
-    extend(config, ctx) {}
+    ** You can extend webpack config here
+    */
+    extend (config, ctx) {
+    }
   }
 }

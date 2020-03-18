@@ -1,0 +1,42 @@
+@import "./variables";
+@import "./typographie";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-rendering: geometricPrecision;
+}
+
+html,
+body {
+  font-family: $font-family;
+  font-size: $base-font-size;
+}
+
+.section {
+  margin: 0 auto;
+  max-width: 1450px;
+  width: 100%;
+
+  &__inner {
+    display: flex;
+    padding: 0 25px;
+    width: 100%;
+
+    &--align-center {
+      align-items: center;
+    }
+  }
+}
+
+/** General Styles **/
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: $grey;
+  text-decoration: none;
+}
