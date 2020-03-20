@@ -22,7 +22,13 @@ body {
   &__inner {
     display: flex;
     padding: 0 25px;
+    position: relative;
     width: 100%;
+
+    &--small {
+      margin: 0 auto;
+      max-width: 720px;
+    }
 
     &--align-center {
       align-items: center;
@@ -39,4 +45,23 @@ ul {
 a {
   color: $grey;
   text-decoration: none;
+}
+
+h1 {
+  @media all and (min-width: $large) {
+    font-size: 2.25rem;
+  }
+
+  color: $grey;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 0 15px 20px rgba(64, 64, 64, 0.33);
+}
+
+h2 {
+  color: $light-grey;
+  font-size: 1.25rem;
+  font-weight: 300;
+  text-shadow: 0 15px 20px rgba(64, 64, 64, 0.33);
 }
