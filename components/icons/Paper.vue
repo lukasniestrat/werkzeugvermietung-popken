@@ -4,7 +4,6 @@
     focusable="false"
     :height="height"
     role="img"
-    width="auto"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 576 512"
   >
