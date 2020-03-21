@@ -38,11 +38,11 @@ export default {
   fill: $yellow;
 }
 
-.light-grey {
-  fill: $light-grey;
-}
-
 .grey {
   fill: $grey;
+}
+
+.light-grey {
+  fill: $light-grey;
 }
 </style>

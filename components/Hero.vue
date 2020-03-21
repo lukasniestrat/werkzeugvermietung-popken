@@ -11,9 +11,9 @@
         <div class="hero__search">
           <input
             v-model="search"
-            @focus="active = !active"
-            type="text"
             placeholder="Suchen Sie nach einem Artikel..."
+            type="text"
+            @focus="active = !active"
           >
           <div class="hero__search__icon">
             <Search color="light-grey" />
@@ -37,19 +37,22 @@
 </template>
 
 <script>
-import axios from 'axios'
 import Search from './icons/Search.vue'
 
 export default {
   components: {
     Search
   },
+  props: {
+    products: {
+      type: Array,
+      required: true
+    }
+  },
   data () {
     return {
-      products: [],
       search: '',
-      active: false,
-      counter: 1
+      active: false
     }
   },
   computed: {
@@ -61,11 +64,6 @@ export default {
         return title.match(search)
       })
     }
-  },
-  created () {
-    axios.get('/data/products.json').then((response) => {
-      this.products = response.data
-    })
   },
   methods: {
     toggleResults () {
@@ -89,6 +87,12 @@ export default {
   &__title {
     text-align: center;
     width: 100%;
+
+    h2 {
+      color: $light-grey;
+      font-size: 1.25rem;
+      font-weight: 300;
+    }
   }
 
   &__search {
@@ -136,6 +140,7 @@ export default {
     position: absolute;
     top: 115px;
     width: 100%;
+    z-index: 1;
 
     &__inner {
       background-color: #fff;

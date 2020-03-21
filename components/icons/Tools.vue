@@ -41,4 +41,8 @@ export default {
 .grey {
   fill: $grey;
 }
+
+.light-grey {
+  fill: $light-grey;
+}
 </style>
