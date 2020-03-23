@@ -2,6 +2,7 @@
   <div>
     <AppHeader />
     <AppHero :products="allProducts" />
+    <AppContact />
     <AppTopProducts :products="topProducts" />
   </div>
 </template>
@@ -10,11 +11,13 @@
 import Header from '~/components/Header.vue'
 import Hero from '~/components/Hero.vue'
 import TopProducts from '~/components/TopProducts'
+import Contact from '~/components/Contact'
 
 export default {
   components: {
     AppHeader: Header,
     AppHero: Hero,
+    AppContact: Contact,
     AppTopProducts: TopProducts
   },
   computed: {
