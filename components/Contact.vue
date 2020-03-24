@@ -93,7 +93,8 @@ export default {
 
       a {
         color: #fff;
-        text-decoration: underline;
+        font-weight: 700;
+        text-decoration: none;
       }
     }
   }

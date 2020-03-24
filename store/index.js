@@ -44,7 +44,7 @@ export const getters = {
   },
   partySupplies: (state) => {
     return state.products.filter((product) => {
-      return product.category === 'Partyzubehör'
+      return product.category === 'Partyzeltzubehör'
     })
   },
   trailer: (state) => {

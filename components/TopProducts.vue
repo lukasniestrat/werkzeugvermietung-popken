@@ -1,5 +1,5 @@
 <template>
-  <div class="section top-article">
+  <div class="section section--spacing">
     <div class="section__inner">
       <h2>
         <Star color="grey" :height="20" />
@@ -19,7 +19,7 @@
           <div class="top__article__inner__category">
             <div class="top__article__inner__category__icon">
               <Car v-if="product.category === 'Anhänger'" color="light-grey" />
-              <Cocktail v-if="product.category === 'Partyzubehör'" color="light-grey" />
+              <Cocktail v-if="product.category === 'Partyzeltzubehör'" color="light-grey" />
               <Paper v-if="product.category === 'WC-Wagen'" color="light-grey" />
               <Tools v-if="product.category === 'Werkzeuge'" color="light-grey" />
               <Tree v-if="product.category === 'Gartengeräte'" color="light-grey" />
@@ -69,15 +69,6 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/styles/variables';
 
-.top-article {
-  padding-bottom: 75px;
-  padding-top: 75px;
-}
-
-.section__inner {
-  flex-flow: row wrap;
-}
-
 .top__article {
   @media screen and (min-width: $large) {
     flex: 0 1 calc(25% - 30px);
@@ -86,7 +77,7 @@ export default {
   border-radius: 10px;
   box-shadow: 0 15px 20px rgba(64, 64, 64, 0.25);
   cursor: pointer;
-  flex: 0 1 calc(100% - 30px);
+  flex: 0 1 calc(100% - 15px);
   margin: 15px 15px;
   padding: 25px;
   position: relative;
@@ -132,5 +123,10 @@ export default {
     position: absolute;
     right: 10px;
   }
+}
+
+h2 {
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>

@@ -13,6 +13,7 @@
             v-model="search"
             placeholder="Suchen Sie nach einem Artikel..."
             type="text"
+            class="search"
             @focus="active = !active"
           >
           <div class="hero__search__icon">
@@ -79,9 +80,13 @@ export default {
 @import '../assets/styles/variables';
 
 .hero {
+  @media screen and (min-width: $large) {
+    padding: 75px 0;
+  }
+
   background-image: url('~assets/suche_hintergrund.jpg');
   background-size: cover;
-  padding: 75px 0;
+  padding: 50px 0;
   width: 100%;
 
   &__title {
@@ -96,35 +101,13 @@ export default {
   }
 
   &__search {
-    margin-top: 50px;
+    @media screen and (min-width: $large) {
+      margin-top: 50px;
+    }
+
+    margin-top: 25px;
     position: relative;
     width: 100%;
-
-    input {
-      border: 2px solid transparent;
-      border-radius: 10px;
-      box-shadow: 0 15px 20px rgba(64, 64, 64, 0.25);
-      color: $grey;
-      font-family: $font-family;
-      font-size: 1.15rem;
-      height: 55px;
-      padding: 0 25px;
-      transition: all 0.15s ease-in-out;
-      width: 100%;
-
-      &:active,
-      &:focus {
-        border-color: $ultra-light-grey;
-        outline: 0;
-      }
-
-      &::placeholder {
-        color: $ultra-light-grey;
-        font-family: $font-family;
-        font-size: 1rem;
-        font-weight: 300;
-      }
-    }
 
     &__icon {
       position: absolute;
