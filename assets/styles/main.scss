@@ -10,8 +10,12 @@
 
 html,
 body {
+  @media screen and (min-width: $large) {
+    font-size: $base-font-size;
+  }
+
   font-family: $font-family;
-  font-size: $base-font-size;
+  font-size: $base-font-size-mobile;
 }
 
 .section {
@@ -19,9 +23,20 @@ body {
   max-width: 1450px;
   width: 100%;
 
+  &--spacing {
+    padding: 50px 0;
+
+    &--nosm {
+      @media screen and (max-width: $large) {
+        padding: 0;
+      }
+    }
+  }
+
   &__inner {
     display: flex;
-    padding: 0 25px;
+    flex-flow: row wrap;
+    padding: 0 20px;
     position: relative;
     width: 100%;
 
@@ -30,8 +45,66 @@ body {
       max-width: 720px;
     }
 
+    &--medium {
+      margin: 0 auto;
+      max-width: 960px;
+    }
+
     &--align-center {
       align-items: center;
+    }
+  }
+}
+
+.search {
+  border: 2px solid transparent;
+  border-radius: 10px;
+  box-shadow: 0 15px 20px rgba(64, 64, 64, 0.25);
+  color: $grey;
+  font-family: $font-family;
+  font-size: 1.15rem;
+  height: 55px;
+  padding: 0 25px;
+  transition: all 0.15s ease-in-out;
+  width: 100%;
+
+  &--small {
+    border: 2px solid #efefef;
+    border-radius: 5px;
+    box-shadow: none;
+    font-size: 1rem;
+    height: 45px;
+    padding: 0 15px;
+  }
+
+  &:active,
+  &:focus {
+    border-color: $ultra-light-grey;
+    outline: 0;
+  }
+
+  &::placeholder {
+    color: $ultra-light-grey;
+    font-family: $font-family;
+    font-size: 1rem;
+    font-weight: 300;
+  }
+}
+
+.about {
+  text-align: center;
+
+  h2 {
+    width: 100%;
+  }
+
+  a {
+    font-weight: 700;
+    text-decoration: underline;
+    transition: all 0.15s ease-in-out;
+
+    &:hover {
+      color: $light-grey;
     }
   }
 }
@@ -45,6 +118,17 @@ ul {
 a {
   color: $grey;
   text-decoration: none;
+}
+
+p {
+  color: $grey;
+  font-size: 1.05rem;
+  line-height: 1.75rem;
+  margin-bottom: 15px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 h1 {
@@ -64,7 +148,6 @@ h2 {
   color:$grey;
   font-size: 1.5rem;
   font-weight: 700;
+  line-height: 1.5rem;
   margin-bottom: 15px;
-  text-align: center;
-  width: 100%;
 }

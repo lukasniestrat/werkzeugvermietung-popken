@@ -23,18 +23,18 @@
           </li>
           <li role="menuitem" class="header__nav__item">
             <a
-              href="#partyzubehoer"
+              href="#partyzeltzubehoer-wcwagen"
               itemprop="url"
               tabindex="0"
-              title="Unser Partyzubehör"
+              title="Unser Partyzeltzubehör"
             >
               <Cocktail />
-              <span itemprop="name">Partyzubehör</span>
+              <span itemprop="name">Partyzeltzubehör</span>
             </a>
           </li>
           <li role="menuitem" class="header__nav__item">
             <a
-              href="#wc-wagen"
+              href="#partyzubehoer-wcwagen"
               itemprop="url"
               tabindex="0"
               title="Unsere WC Wagen"
