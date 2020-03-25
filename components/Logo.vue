@@ -1,5 +1,5 @@
 <template>
-  <svg viewBox="0 0 1337.43 598.73" xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="0 0 1337.43 598.73" xmlns="http://www.w3.org/2000/svg" :width="width">
     <path
       d="m367.67 60.45c2.53 6.44 2.5 14.5-4.25 19a16 16 0 0 1 -6 2.1v2.76c2.4 1.15 7.19 2 16.5-.11 16.25-3.75 13.5-18.75 9.25-26.5s-21-8-25.75-4.25v1.14c5.21.78 8.93 2.52 10.25 5.86z"
       fill="#303082"
@@ -268,3 +268,15 @@
     />
   </svg>
 </template>
+
+<script>
+export default {
+  props: {
+    width: {
+      type: Number,
+      required: false,
+      default: 250
+    }
+  }
+}
+</script>
