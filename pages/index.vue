@@ -1,5 +1,6 @@
 <template>
   <div>
+    <AppSpecialOffer />
     <AppHeader />
     <AppHero :products="allProducts" />
     <AppContact />
@@ -44,10 +45,12 @@ import Hero from '~/components/Hero.vue'
 import TopProducts from '~/components/TopProducts'
 import Contact from '~/components/Contact'
 import ArticleTable from '~/components/ArticleTable'
+import SpecialOffer from '~/components/SpecialOffer'
 import Footer from '~/components/Footer'
 
 export default {
   components: {
+    AppSpecialOffer: SpecialOffer,
     AppHeader: Header,
     AppHero: Hero,
     AppContact: Contact,
