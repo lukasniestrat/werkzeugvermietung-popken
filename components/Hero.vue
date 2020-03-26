@@ -27,7 +27,11 @@
         <div v-if="search && active" class="hero__results">
           <div class="hero__results__inner">
             <ul>
-              <li v-for="(product, index) in filteredProducts" :key="index">
+              <li
+                v-for="(product, index) in filteredProducts"
+                :key="index"
+                @click="showPopup(product.title, product.category, product.price)"
+              >
                 {{ product.title }}
               </li>
               <li v-if="filteredProducts.length === 0" class="no-item-found">
@@ -75,6 +79,16 @@ export default {
       if (this.active) {
         this.active = !this.active
       }
+    },
+    showPopup (title, category, price) {
+      const currentItem = {
+        title,
+        category,
+        price
+      }
+
+      this.$store.dispatch('addItem', currentItem)
+      this.$store.dispatch('tooglePopup')
     }
   }
 }

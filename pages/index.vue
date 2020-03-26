@@ -87,6 +87,7 @@
       </div>
     </section>
     <AppFooter />
+    <AppPopup />
   </div>
 </template>
 
@@ -96,6 +97,7 @@ import Contact from '~/components/Contact'
 import Footer from '~/components/Footer'
 import Header from '~/components/Header.vue'
 import Hero from '~/components/Hero.vue'
+import Popup from '~/components/Popup.vue'
 import SpecialOffer from '~/components/SpecialOffer'
 import TopProducts from '~/components/TopProducts'
 
@@ -106,6 +108,7 @@ export default {
     AppFooter: Footer,
     AppHeader: Header,
     AppHero: Hero,
+    AppPopup: Popup,
     AppSpecialOffer: SpecialOffer,
     AppTopProducts: TopProducts
   },

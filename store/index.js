@@ -1,8 +1,14 @@
 import axios from 'axios'
 
 export const state = () => ({
+  menuIsOpen: false,
+  popupIsOpen: false,
   products: [],
-  menuOpen: false
+  selectedItem: [{
+    title: 'Test',
+    category: 'Werkzeuge',
+    price: 15.00
+  }]
 })
 
 export const mutations = {
@@ -11,6 +17,16 @@ export const mutations = {
   },
   TOGGLE_MENU (state) {
     state.menuOpen = !state.menuOpen
+  },
+  ADD_ITEM (state, { title, category, price }) {
+    state.selectedItem = [{
+      title,
+      category,
+      price
+    }]
+  },
+  TOOGLE_POPUP (state) {
+    state.popupIsOpen = !state.popupIsOpen
   }
 }
 
@@ -24,6 +40,12 @@ export const actions = {
   },
   toggleMenu ({ commit }) {
     commit('TOGGLE_MENU')
+  },
+  addItem ({ commit }, item) {
+    commit('ADD_ITEM', item)
+  },
+  tooglePopup ({ commit }) {
+    commit('TOOGLE_POPUP')
   }
 }
 
@@ -59,5 +81,7 @@ export const getters = {
       return product.category === 'Anhänger'
     })
   },
-  openMenu: state => state.menuOpen
+  openMenu: state => state.menuIsOpen,
+  openPopup: state => state.popupIsOpen,
+  popupItem: state => state.selectedItem
 }

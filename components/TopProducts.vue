@@ -11,6 +11,7 @@
         v-for="(product, index) in products"
         :key="index"
         class="top__article"
+        @click="showPopup(product.title, product.category, product.price)"
       >
         <div class="top__article__inner">
           <h3 class="top__article__inner__title">
@@ -61,6 +62,18 @@ export default {
     products: {
       type: Array,
       required: true
+    }
+  },
+  methods: {
+    showPopup (title, category, price) {
+      const currentItem = {
+        title,
+        category,
+        price
+      }
+
+      this.$store.dispatch('addItem', currentItem)
+      this.$store.dispatch('tooglePopup')
     }
   }
 }

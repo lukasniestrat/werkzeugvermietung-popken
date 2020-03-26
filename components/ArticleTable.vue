@@ -49,7 +49,7 @@
         </div>
       </div>
       <ul class="products__accordionbody__table">
-        <li v-for="product in filteredProducts" :key="product.id">
+        <li v-for="product in filteredProducts" :key="product.id" @click="showPopup(product.title, product.category, product.price)">
           <div class="products__accordionbody__table__title">
             {{ product.title }}
           </div>
@@ -141,6 +141,16 @@ export default {
       if (window.innerWidth > 960) {
         this.showAllProducts = !this.showAllProducts
       }
+    },
+    showPopup (title, category, price) {
+      const currentItem = {
+        title,
+        category,
+        price
+      }
+
+      this.$store.dispatch('addItem', currentItem)
+      this.$store.dispatch('tooglePopup')
     }
   }
 }
@@ -174,6 +184,11 @@ export default {
     &__category {
       @media screen and (min-width: $large) {
         text-align: right;
+      }
+
+      svg {
+        margin-top: 1px;
+        vertical-align: top;
       }
     }
 
