@@ -5,20 +5,31 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: 'Werkzeug-, Geräte- & Partyzubehör J. Popken - Wir haben für jeden was',
+    title: 'Werkzeug-, Geräte- & Partyzeltzubehör J. Popken',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
-      }
+        content: '✓ Werkzeuge ✓ Gartengeräte ✓ Partyzeltzubehör ✓ WC-Wagen ✓ PKW-Anhänger - Wir haben für jeden was dabei, schnell und einfach!'
+      },
+      { name: 'robots', content: 'index,follow' },
+      { name: 'author', content: 'Werkzeugvermietung Popken' },
+      { itemprop: 'copyrightHolder', content: 'Werkzeugvermietung Popken' },
+      { itemprop: 'copyrightYear', content: '2019' },
+      { itemprop: 'isFamilyFriendly', content: 'true' },
+      { itemprop: 'image', content: '/logo.png' }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
+      { rel: 'canonical', href: 'https://werkzeugvermietung-popken.de' }
+    ],
     bodyAttrs: {
       'itemtype': 'http://schema.org/WebPage',
       'itemscope': 'itemscope',
+    },
+    htmlAttrs: {
       'lang': 'de'
     }
   },

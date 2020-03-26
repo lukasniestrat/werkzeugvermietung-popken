@@ -27,9 +27,7 @@
             <MapMarker color="yellow" :height="25" />
           </div>
           <div class="contact__info__content">
-            <a href="https://goo.gl/maps/cEK4DY8CMAXgRJT18" target="_blank" title="Adresse auf Google Maps anzeigen">
-              Mittelweg 109<br>26624 Südbrookmerland
-            </a>
+            Adresse: <a href="https://goo.gl/maps/cEK4DY8CMAXgRJT18" rel="noopener" target="_blank" title="Adresse auf Google Maps anzeigen">Mittelweg 109,<br>26624 Südbrookmerland</a>
           </div>
         </div>
       </div>

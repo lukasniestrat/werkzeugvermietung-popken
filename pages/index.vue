@@ -1,5 +1,54 @@
 <template>
   <div>
+    <script type="application/ld+json">
+    {
+      "@id": "https://werkzeugvermietung-popken.de/",
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "url": "https://werkzeugvermietung-popken.de/",
+      "name": "Werkzeug-, Geräte- & Partyzeltzubehör J. Popken",
+      "description": "Der hr Nr. 1 Geräteverleih für Aurich, Emden, Leer und ganz Ostfriesland. Werkzeuge, Gartengeräte, Partyzeltzubehör, WC-Wagen, PKW-Anhänger",
+      "logo": {
+        "@context": "https://schema.org",
+        "@type": "ImageObject",
+        "url": "https://werkzeugvermietung-popken.de/logo.png"
+      },
+      "location": {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Werkzeug-, Geräte- & Partyzeltzubehör J. Popken",
+        "telephone": "04941 982689",
+        "address": {
+          "@context": "https://schema.org",
+          "@type": "PostalAddress",
+          "name": "Werkzeug-, Geräte- & Partyzeltzubehör J. Popken",
+          "streetAddress": "Mittelweg 109",
+          "addressLocality": "Südbrookmerland",
+          "addressRegion": "Niedersachsen",
+          "postalCode": "26624",
+          "addressCountry": "DE"
+        },
+        "geo": {
+          "@context": "https://schema.org",
+          "@type": "GeoCoordinates",
+          "latitude": "53.4700883",
+          "longitude": "7.4032322"
+        },
+        "image": [
+          {
+            "@context": "https://schema.org",
+            "@type": "ImageObject",
+            "url": "https://werkzeugvermietung-popken.de/logo.png",
+            "width": 300,
+            "height": 120
+          }
+        ]
+      },
+      "sameAs": [
+        "https://www.facebook.com/Werkzeugvermietung.Popken/"
+      ]
+    }
+    </script>
     <AppSpecialOffer />
     <AppHeader />
     <AppHero :products="allProducts" />

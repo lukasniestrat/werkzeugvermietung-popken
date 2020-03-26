@@ -74,6 +74,7 @@ export default {
     flex: 0 1 calc(25% - 30px);
   }
 
+  border: 2px solid #efefef;
   border-radius: 10px;
   box-shadow: 0 15px 20px rgba(64, 64, 64, 0.25);
   cursor: pointer;

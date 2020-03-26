@@ -19,10 +19,10 @@
                 <a href="#wcwagen-anhaenger" title="Unsere WC Wagen" tabindex="0">WC Wagen</a>
               </li>
               <li>
-                <a href="#partyzeltzubehoer" title="Unsere WC Wagen" tabindex="0">Partyzeltzubehör</a>
+                <a href="#partyzeltzubehoer" title="Unser Partyzeltzubehör" tabindex="0">Partyzeltzubehör</a>
               </li>
               <li>
-                <a href="#partyzeltzubehoer" title="Unser aktueller Flyer" tabindex="0">Flyer</a>
+                <a href="/produktflyer-2020.pdf" target="_blank" title="Unser aktueller Flyer" tabindex="0">Flyer</a>
               </li>
               <li>
                 <a href="#kontakt" title="Nehmen Sie Kontakt zu uns auf" tabindex="0">Kontakt</a>
@@ -187,6 +187,11 @@ export default {
           color: #fff;
           font-weight: 700;
           text-decoration: none;
+          transition: all 0.15s ease-in-out;
+
+          &:hover {
+            opacity: 0.66;
+          }
         }
       }
     }

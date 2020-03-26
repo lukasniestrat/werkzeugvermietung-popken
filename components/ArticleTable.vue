@@ -18,6 +18,12 @@
       </div>
     </div>
     <div
+      v-if="headline === 'Partyzeltzubehör'"
+      class="products__accordionheader__notice"
+    >
+      Hinweis: Die Preise für das Partyzeltzubehör gelten jeweils für 3 Tage.
+    </div>
+    <div
       class="products__accordionbody"
       :class="{'products__accordionbody--open': accordionOpen || showAllProducts}"
     >
@@ -30,7 +36,9 @@
         </div>
       </div>
       <div class="products__accordionbody__search">
+        <label :for="headline.toLowerCase()">{{ headline }} durchsuchen...</label>
         <input
+          :id="headline.toLowerCase()"
           v-model="search"
           :placeholder="`${ headline } durchsuchen...`"
           type="text"
@@ -60,6 +68,12 @@
         <Minus v-else color="grey" :height="13" />
         <span v-if="!showAllProducts">Alle Artikel {{ products.length }} anzeigen</span>
         <span v-else>Weniger Artikel anzeigen</span>
+      </div>
+      <div
+        v-if="headline === 'Anhänger'"
+        class="products__accordionheader__notice products__accordionheader__notice--spacing"
+      >
+        Preise für Halbtagsmieten auf Anfrage.
       </div>
     </div>
   </div>
@@ -164,6 +178,7 @@ export default {
     }
 
     h2 {
+      cursor: text;
       display: inline-block;
       margin-bottom: 0;
       margin-left: 10px;
@@ -178,17 +193,27 @@ export default {
       display: block;
       margin-left: auto;
     }
+
+    &__notice {
+      font-size: 0.85rem;
+      margin-bottom: 15px;
+      text-align: center;
+
+      &--spacing {
+        margin-top: 10px;
+      }
+    }
   }
 
   &__accordionbody {
     @media screen and (min-width: $large) {
-      max-height: 550px;
+      max-height: 400px;
     }
 
     max-height: 0;
     overflow: hidden;
     position: relative;
-    transition: max-height 0.33s ease-in-out;
+    transition: all 0.5s ease-in-out;
 
     &--open {
       max-height: 100%;
@@ -221,6 +246,14 @@ export default {
       padding: 0;
       position: relative;
 
+      label {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: -1;
+      }
+
       &__icon {
         position: absolute;
         top: 15px;
@@ -231,16 +264,26 @@ export default {
     &__table {
       li {
         color: $grey;
+        cursor: pointer;
         display: flex;
         list-style: none;
         padding: 8px 15px;
+        transition: all 0.15s ease-in-out;
 
         &:nth-child(odd) {
           background-color: #efefef;
+
+          &:hover {
+            background-color: #e0e0e0;
+          }
         }
 
         &:nth-child(even) {
           background-color: #fff;
+
+          &:hover {
+            background-color: #d6d6d6;
+          }
         }
       }
 

@@ -3,13 +3,17 @@
     <div class="section">
       <div class="section__inner section__inner--center">
         <div class="hero__title">
-          <h1>Werkzeug-, Geräte- & Partyzeltzubehör J. Popken</h1>
+          <h1 itemprop="name">
+            Werkzeug-, Geräte- & Partyzeltzubehör J. Popken
+          </h1>
           <h2>Ihr Nr. 1 Geräteverleih für Aurich, Emden, Leer und ganz Ostfriesland.</h2>
         </div>
       </div>
       <div v-click-outside="toggleResults" class="section__inner section__inner--small">
         <div class="hero__search">
+          <label for="article-search">Suchen Sie nach einem Artikel...</label>
           <input
+            id="article-search"
             v-model="search"
             placeholder="Suchen Sie nach einem Artikel..."
             type="text"
@@ -108,6 +112,14 @@ export default {
     margin-top: 25px;
     position: relative;
     width: 100%;
+
+    label {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: -1;
+    }
 
     &__icon {
       position: absolute;

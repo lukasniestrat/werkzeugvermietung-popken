@@ -5,9 +5,9 @@
         <div class="specialoffer__icon">
           <Bullhorn color="white" />
         </div>
-        <div
-          class="specialoffer__text"
-        ><strong>Aktuelles Angebot:</strong> {{ specialOffer[0].text }}</div>
+        <div class="specialoffer__text">
+          <strong>Aktuelles Angebot:</strong> {{ specialOffer[0].text }}
+        </div>
       </div>
     </div>
   </div>

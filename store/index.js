@@ -1,12 +1,16 @@
 import axios from 'axios'
 
 export const state = () => ({
-  products: []
+  products: [],
+  menuOpen: false
 })
 
 export const mutations = {
   SAVE_PRODUCTS (state, products) {
     state.products = products
+  },
+  TOGGLE_MENU (state) {
+    state.menuOpen = !state.menuOpen
   }
 }
 
@@ -17,6 +21,9 @@ export const actions = {
     }).catch((error) => {
       throw new Error(`API ${error}`)
     })
+  },
+  toggleMenu ({ commit }) {
+    commit('TOGGLE_MENU')
   }
 }
 
@@ -51,5 +58,6 @@ export const getters = {
     return state.products.filter((product) => {
       return product.category === 'Anhänger'
     })
-  }
+  },
+  openMenu: state => state.menuOpen
 }
