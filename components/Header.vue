@@ -176,7 +176,7 @@ export default {
     }
 
     background-color: #fff;
-    border-top: 1px solid #efefef;
+    border-top: 1px solid $middle-grey;
     height: calc(100vh - 100px);
     left: -100vw;
     padding: 0 35px;

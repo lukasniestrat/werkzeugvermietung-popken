@@ -1,5 +1,5 @@
 <template>
-  <div v-if="specialOffer[0].active === true" class="specialoffer">
+  <section v-if="specialOffer[0].active === true" class="specialoffer">
     <div class="section">
       <div class="section__inner section__inner--small section__inner--align-center section__inner--justify-center">
         <div class="specialoffer__icon">
@@ -10,7 +10,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

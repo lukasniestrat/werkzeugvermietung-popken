@@ -165,7 +165,7 @@ export default {
     }
 
     align-items: center;
-    background-color: #efefef;
+    background-color: $middle-grey;
     cursor: pointer;
     display: flex;
     padding: 15px 25px;
@@ -271,7 +271,7 @@ export default {
         transition: all 0.15s ease-in-out;
 
         &:nth-child(odd) {
-          background-color: #efefef;
+          background-color: $middle-grey;
 
           &:hover {
             background-color: #e0e0e0;

@@ -1,5 +1,5 @@
 <template>
-  <div class="hero">
+  <section class="hero">
     <div class="section">
       <div class="section__inner section__inner--center">
         <div class="hero__title">
@@ -38,7 +38,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

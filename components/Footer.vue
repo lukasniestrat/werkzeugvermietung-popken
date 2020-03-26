@@ -1,5 +1,5 @@
 <template>
-  <div id="kontakt" class="footer">
+  <footer id="kontakt" class="footer">
     <div class="section">
       <div class="section__inner">
         <div class="footer__info">
@@ -106,7 +106,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </footer>
 </template>
 
 <script>

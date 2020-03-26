@@ -74,7 +74,12 @@ export default {
     flex: 0 1 calc(25% - 30px);
   }
 
-  border: 2px solid #efefef;
+  @media screen and (min-width: $medium) and  (max-width: $large) {
+    flex: 0 1 calc(50% - 30px);
+  }
+
+  background-color: #fff;
+  border: 2px solid $middle-grey;
   border-radius: 10px;
   box-shadow: 0 15px 20px rgba(64, 64, 64, 0.25);
   cursor: pointer;

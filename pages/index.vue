@@ -1,7 +1,7 @@
 <template>
   <div>
     <script type="application/ld+json">
-    {
+      {
       "@id": "https://werkzeugvermietung-popken.de/",
       "@context": "https://schema.org",
       "@type": "Organization",
@@ -9,69 +9,71 @@
       "name": "Werkzeug-, Geräte- & Partyzeltzubehör J. Popken",
       "description": "Der hr Nr. 1 Geräteverleih für Aurich, Emden, Leer und ganz Ostfriesland. Werkzeuge, Gartengeräte, Partyzeltzubehör, WC-Wagen, PKW-Anhänger",
       "logo": {
-        "@context": "https://schema.org",
-        "@type": "ImageObject",
-        "url": "https://werkzeugvermietung-popken.de/logo.png"
+      "@context": "https://schema.org",
+      "@type": "ImageObject",
+      "url": "https://werkzeugvermietung-popken.de/logo.png"
       },
       "location": {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Werkzeug-, Geräte- & Partyzeltzubehör J. Popken",
-        "telephone": "04941 982689",
-        "address": {
-          "@context": "https://schema.org",
-          "@type": "PostalAddress",
-          "name": "Werkzeug-, Geräte- & Partyzeltzubehör J. Popken",
-          "streetAddress": "Mittelweg 109",
-          "addressLocality": "Südbrookmerland",
-          "addressRegion": "Niedersachsen",
-          "postalCode": "26624",
-          "addressCountry": "DE"
-        },
-        "geo": {
-          "@context": "https://schema.org",
-          "@type": "GeoCoordinates",
-          "latitude": "53.4700883",
-          "longitude": "7.4032322"
-        },
-        "image": [
-          {
-            "@context": "https://schema.org",
-            "@type": "ImageObject",
-            "url": "https://werkzeugvermietung-popken.de/logo.png",
-            "width": 300,
-            "height": 120
-          }
-        ]
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Werkzeug-, Geräte- & Partyzeltzubehör J. Popken",
+      "telephone": "04941 982689",
+      "address": {
+      "@context": "https://schema.org",
+      "@type": "PostalAddress",
+      "name": "Werkzeug-, Geräte- & Partyzeltzubehör J. Popken",
+      "streetAddress": "Mittelweg 109",
+      "addressLocality": "Südbrookmerland",
+      "addressRegion": "Niedersachsen",
+      "postalCode": "26624",
+      "addressCountry": "DE"
+      },
+      "geo": {
+      "@context": "https://schema.org",
+      "@type": "GeoCoordinates",
+      "latitude": "53.4700883",
+      "longitude": "7.4032322"
+      },
+      "image": [
+      {
+      "@context": "https://schema.org",
+      "@type": "ImageObject",
+      "url": "https://werkzeugvermietung-popken.de/logo.png",
+      "width": 300,
+      "height": 120
+      }
+      ]
       },
       "sameAs": [
-        "https://www.facebook.com/Werkzeugvermietung.Popken/"
+      "https://www.facebook.com/Werkzeugvermietung.Popken/"
       ]
-    }
+      }
     </script>
     <AppSpecialOffer />
     <AppHeader />
     <AppHero :products="allProducts" />
     <AppContact />
-    <AppTopProducts :products="topProducts" />
-    <div id="werkzeuge-garten" class="section section--spacing section--spacing--nosm">
+    <section class="top-products">
+      <AppTopProducts :products="topProducts" />
+    </section>
+    <section id="werkzeuge-garten" class="section section--spacing section--spacing--nosm">
       <div class="section__inner">
         <AppArticleTable :products="tools" headline="Werkzeuge" />
         <AppArticleTable :products="gardenTools" headline="Gartengeräte" />
       </div>
-    </div>
-    <div id="wcwagen-anhaenger" class="section section--spacing section--spacing--nosm">
+    </section>
+    <section id="wcwagen-anhaenger" class="section section--spacing section--spacing--nosm">
       <div class="section__inner">
         <AppArticleTable :products="toilets" headline="WC-Wagen" />
         <AppArticleTable :products="trailer" headline="Anhänger" />
       </div>
-    </div>
-    <div id="partyzeltzubehoer" class="section section--spacing section--spacing--nosm">
+    </section>
+    <section id="partyzeltzubehoer" class="section section--spacing section--spacing--nosm">
       <div class="section__inner">
         <AppArticleTable :products="partySupplies" headline="Partyzeltzubehör" />
       </div>
-    </div>
-    <div class="about">
+    </section>
+    <section class="about">
       <div class="section section--spacing">
         <div class="section__inner section__inner">
           <div class="about__text">
@@ -83,29 +85,29 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
     <AppFooter />
   </div>
 </template>
 
 <script>
+import ArticleTable from '~/components/ArticleTable'
+import Contact from '~/components/Contact'
+import Footer from '~/components/Footer'
 import Header from '~/components/Header.vue'
 import Hero from '~/components/Hero.vue'
-import TopProducts from '~/components/TopProducts'
-import Contact from '~/components/Contact'
-import ArticleTable from '~/components/ArticleTable'
 import SpecialOffer from '~/components/SpecialOffer'
-import Footer from '~/components/Footer'
+import TopProducts from '~/components/TopProducts'
 
 export default {
   components: {
-    AppSpecialOffer: SpecialOffer,
+    AppArticleTable: ArticleTable,
+    AppContact: Contact,
+    AppFooter: Footer,
     AppHeader: Header,
     AppHero: Hero,
-    AppContact: Contact,
-    AppTopProducts: TopProducts,
-    AppArticleTable: ArticleTable,
-    AppFooter: Footer
+    AppSpecialOffer: SpecialOffer,
+    AppTopProducts: TopProducts
   },
   computed: {
     allProducts () {

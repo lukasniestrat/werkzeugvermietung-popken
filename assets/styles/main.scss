@@ -73,7 +73,7 @@ body {
   width: 100%;
 
   &--small {
-    border: 2px solid #efefef;
+    border: 2px solid $middle-grey;
     border-radius: 5px;
     box-shadow: none;
     font-size: 1rem;
@@ -95,8 +95,12 @@ body {
   }
 }
 
+.top-products {
+  background-color: $background-grey;
+}
+
 .about {
-  background-color: #efefef;
+  background-color: $background-grey;
 
   &__text {
     @media screen and (min-width: $large) {
