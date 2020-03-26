@@ -2,7 +2,9 @@
   <header class="section header" :class="{'header--fixed': menuOpen}">
     <div class="section__inner section__inner--align-center">
       <div class="header__logo">
-        <img src="~/assets/logo.svg" alt="Werkzeugvermietung Popken Logo" title="Werkzeugvermietung Popken Logo">
+        <a href="/" title="Zur Startseite">
+          <img src="~/assets/logo.svg" alt="Werkzeugvermietung Popken Logo" title="Werkzeugvermietung Popken Logo">
+        </a>
       </div>
       <nav class="header__nav" :class="{'header__nav--open': menuOpen}">
         <ul

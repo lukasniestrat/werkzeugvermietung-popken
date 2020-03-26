@@ -137,6 +137,13 @@ export default {
   },
   created () {
     this.$store.dispatch('loadProducts')
+  },
+  head () {
+    return {
+      meta: [
+        { name: 'robots', content: 'index,follow' }
+      ]
+    }
   }
 }
 </script>

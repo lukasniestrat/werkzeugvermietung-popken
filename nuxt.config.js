@@ -14,7 +14,6 @@ export default {
         name: 'description',
         content: '✓ Werkzeuge ✓ Gartengeräte ✓ Partyzeltzubehör ✓ WC-Wagen ✓ PKW-Anhänger - Wir haben für jeden was dabei, schnell und einfach!'
       },
-      { name: 'robots', content: 'index,follow' },
       { name: 'author', content: 'Werkzeugvermietung Popken' },
       { itemprop: 'copyrightHolder', content: 'Werkzeugvermietung Popken' },
       { itemprop: 'copyrightYear', content: '2019' },

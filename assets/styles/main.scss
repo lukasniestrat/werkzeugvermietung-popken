@@ -123,6 +123,22 @@ body {
   }
 }
 
+.siteheader {
+  background-color: $light-grey;
+  padding: 50px 25px;
+  text-align: center;
+  width: 100%;
+
+  h1 {
+    color: #fff;
+    margin-bottom: 0;
+  }
+}
+
+.content {
+  margin: 50px 0;
+}
+
 /** General Styles **/
 ul {
   margin: 0;
