@@ -16,7 +16,7 @@ export const mutations = {
     state.products = products
   },
   TOGGLE_MENU (state) {
-    state.menuOpen = !state.menuOpen
+    state.menuIsOpen = !state.menuIsOpen
   },
   ADD_ITEM (state, { title, category, price }) {
     state.selectedItem = [{
