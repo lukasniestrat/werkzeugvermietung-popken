@@ -18,7 +18,12 @@ export default {
       { itemprop: 'copyrightHolder', content: 'Werkzeugvermietung Popken' },
       { itemprop: 'copyrightYear', content: '2019' },
       { itemprop: 'isFamilyFriendly', content: 'true' },
-      { itemprop: 'image', content: '/logo.png' }
+      { itemprop: 'image', content: '/logo.png' },
+      { property: 'og:site_name', content:'Werkzeugvermietung Popken' },
+      { property: 'og:title', content:'Werkzeug-, Geräte- & Partyzeltzubehör J. Popken' },
+      { property: 'og:description', content:'✓ Werkzeuge ✓ Gartengeräte ✓ Partyzeltzubehör ✓ WC-Wagen ✓ PKW-Anhänger - Wir haben für jeden was dabei, schnell und einfach!' },
+      { property: 'og:url', content:'https://werkzeugvermietung-popken.de' },
+      { property: 'og:image', content:'https://werkzeugvermietung-popken.de/werkzeugvermietung-popken-og.jpg' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
@@ -55,8 +60,13 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/stylelint-module
-    '@nuxtjs/stylelint-module'
+    '@nuxtjs/stylelint-module',
+    '@nuxtjs/gtm'
   ],
+
+  gtm: {
+    id: 'GTM-KN369N3'
+  },
   /*
   ** Nuxt.js modules
   */

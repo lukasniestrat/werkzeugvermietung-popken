@@ -57,6 +57,9 @@
             {{ product.price }}
           </div>
         </li>
+        <li v-if="filteredProducts.length === 0" class="no-item-found">
+          Leider keine Artikel gefunden...
+        </li>
       </ul>
       <div
         v-if="products.length >= 15 && !search"
@@ -284,6 +287,13 @@ export default {
         list-style: none;
         padding: 8px 15px;
         transition: all 0.15s ease-in-out;
+
+        &.no-item-found {
+          background-color: #fff !important;
+          color: $light-grey;
+          cursor: auto;
+          font-size: 0.75rem;
+        }
 
         &:nth-child(odd) {
           background-color: $middle-grey;
