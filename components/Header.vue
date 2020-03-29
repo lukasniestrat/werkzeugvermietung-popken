@@ -13,7 +13,7 @@
           itemscope
           itemtype="http://schema.org/SiteNavigationElement"
         >
-          <li role="menuitem" class="header__nav__main__item">
+          <li role="menuitem" class="header__nav__main__item" @click="openMenu">
             <a
               href="#werkzeuge-garten"
               itemprop="url"
@@ -24,7 +24,7 @@
               <span itemprop="name">Werkzeuge & Garten</span>
             </a>
           </li>
-          <li role="menuitem" class="header__nav__main__item">
+          <li role="menuitem" class="header__nav__main__item" @click="openMenu">
             <a
               href="#wcwagen-anhaenger"
               itemprop="url"
@@ -35,7 +35,7 @@
               <span itemprop="name">WC Wagen</span>
             </a>
           </li>
-          <li role="menuitem" class="header__nav__main__item">
+          <li role="menuitem" class="header__nav__main__item" @click="openMenu">
             <a
               href="#wcwagen-anhaenger"
               itemprop="url"
@@ -46,7 +46,7 @@
               <span itemprop="name">Anhänger</span>
             </a>
           </li>
-          <li role="menuitem" class="header__nav__main__item">
+          <li role="menuitem" class="header__nav__main__item" @click="openMenu">
             <a
               href="#partyzeltzubehoer"
               itemprop="url"
@@ -57,7 +57,7 @@
               <span itemprop="name">Partyzeltzubehör</span>
             </a>
           </li>
-          <li role="menuitem" class="header__nav__main__item">
+          <li role="menuitem" class="header__nav__main__item" @click="openMenu">
             <a
               href="/produktflyer-2020.pdf"
               itemprop="url"
@@ -69,7 +69,7 @@
               <span itemprop="name">Flyer</span>
             </a>
           </li>
-          <li role="menuitem" class=" header__nav__main__item">
+          <li role="menuitem" class=" header__nav__main__item" @click="openMenu">
             <a
               href="#kontakt"
               itemprop="url"
@@ -133,7 +133,9 @@ export default {
   },
   methods: {
     openMenu () {
-      this.$store.dispatch('toggleMenu')
+      if (window.innerWidth <= 960) {
+        this.$store.dispatch('toggleMenu')
+      }
     }
   }
 }
