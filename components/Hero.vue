@@ -18,11 +18,13 @@
             placeholder="Suchen Sie nach einem Artikel..."
             type="text"
             class="search"
+            :disabled="isLoading"
             @focus="active = !active"
           >
           <div class="hero__search__icon">
             <Search color="light-grey" />
           </div>
+          <Loading v-if="isLoading" />
         </div>
         <div v-if="search && active" class="hero__results">
           <div class="hero__results__inner" :class="{'hero__results__inner--scroll': filteredProducts.length > 6}">
@@ -45,10 +47,12 @@
 </template>
 
 <script>
+import Loading from './Loading.vue'
 import Search from './icons/Search.vue'
 
 export default {
   components: {
+    Loading,
     Search
   },
   props: {
@@ -71,6 +75,9 @@ export default {
 
         return title.match(search)
       })
+    },
+    isLoading () {
+      return this.$store.getters.loading
     }
   },
   methods: {

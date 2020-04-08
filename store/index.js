@@ -8,12 +8,14 @@ export const state = () => ({
     title: 'Test',
     category: 'Werkzeuge',
     price: 15.00
-  }]
+  }],
+  isLoading: true
 })
 
 export const mutations = {
   SAVE_PRODUCTS (state, products) {
     state.products = products
+    state.isLoading = false
   },
   TOGGLE_MENU (state) {
     state.menuIsOpen = !state.menuIsOpen
@@ -83,5 +85,6 @@ export const getters = {
   },
   openMenu: state => state.menuIsOpen,
   openPopup: state => state.popupIsOpen,
-  popupItem: state => state.selectedItem
+  popupItem: state => state.selectedItem,
+  loading: state => state.isLoading
 }

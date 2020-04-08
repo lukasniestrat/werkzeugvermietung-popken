@@ -19,9 +19,21 @@ body {
   font-size: $base-font-size-mobile;
 }
 
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.15s;
+  transition-timing-function: ease-in-out;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
 .section {
   margin: 0 auto;
   max-width: 1450px;
+  position: relative;
   width: 100%;
 
   &--spacing {
@@ -73,6 +85,10 @@ body {
   transition: all 0.15s ease-in-out;
   width: 100%;
 
+  &:disabled {
+    opacity: 0.66;
+  }
+
   &--small {
     border: 2px solid $middle-grey;
     border-radius: 5px;
@@ -98,6 +114,7 @@ body {
 
 .top-products {
   background-color: $background-grey;
+  min-height: 333px;
 }
 
 .about {
