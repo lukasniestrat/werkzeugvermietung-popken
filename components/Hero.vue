@@ -31,9 +31,8 @@
                 v-for="(product, index) in filteredProducts"
                 :key="index"
                 @click="showPopup(product.title, product.category, product.price)"
-              >
-                {{ product.title }}
-              </li>
+                v-html="highlight(product.title)"
+              />
               <li v-if="filteredProducts.length === 0" class="no-item-found">
                 Leider keine Artikel gefunden...
               </li>
@@ -89,12 +88,17 @@ export default {
 
       this.$store.dispatch('addItem', currentItem)
       this.$store.dispatch('tooglePopup')
+    },
+    highlight (string) {
+      return string.replace(new RegExp(this.search, 'gi'), (match) => {
+        return '<span>' + match + '</span>'
+      })
     }
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '../assets/styles/variables';
 
 .hero {
@@ -159,7 +163,7 @@ export default {
 
       ul {
         li {
-          color: $grey;
+          color: $light-grey;
           cursor: pointer;
           font-size: 1rem;
           height: 55px;
@@ -167,6 +171,11 @@ export default {
           padding: 0 25px;
           overflow: hidden;
           transition: all 0.15s ease-in-out;
+
+          span {
+            color: $grey;
+            font-weight: 700;
+          }
 
           &.no-item-found {
             color: $light-grey;
