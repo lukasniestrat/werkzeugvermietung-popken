@@ -25,7 +25,7 @@
           </div>
         </div>
         <div v-if="search && active" class="hero__results">
-          <div class="hero__results__inner">
+          <div class="hero__results__inner" :class="{'hero__results__inner--scroll': filteredProducts.length > 6}">
             <ul>
               <li
                 v-for="(product, index) in filteredProducts"
@@ -159,7 +159,11 @@ export default {
       background-color: #fff;
       border-radius: 5px;
       box-shadow: 0 15px 20px rgba(64, 64, 64, 0.25);
-      overflow: hidden;
+
+      &--scroll {
+        max-height: 330px;
+        overflow-y: scroll;
+      }
 
       ul {
         li {
