@@ -16,12 +16,21 @@ export const mutations = {
   TOGGLE_MENU (state) {
     state.menuIsOpen = !state.menuIsOpen
   },
-  ADD_ITEM (state, { title, category, price, newArticle = null }) {
+  ADD_ITEM (state, {
+    title,
+    category,
+    price,
+    newArticle = null,
+    image = null,
+    datasheet = null
+  }) {
     state.selectedItem = [{
       title,
       category,
       price,
-      newArticle
+      newArticle,
+      image,
+      datasheet
     }]
   },
   TOOGLE_POPUP (state) {
@@ -50,9 +59,9 @@ export const actions = {
 
 export const getters = {
   allProducts: state => state.products,
-  topProducts: (state) => {
+  newProducts: (state) => {
     return state.products.filter((product) => {
-      return product.topArticle
+      return product.newArticle
     })
   },
   tools: (state) => {

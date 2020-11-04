@@ -32,7 +32,14 @@
               <li
                 v-for="(product, index) in filteredProducts"
                 :key="index"
-                @click="showPopup(product.title, product.category, product.price, product.newArticle)"
+                @click="showPopup(
+                  product.title,
+                  product.category,
+                  product.price,
+                  product.newArticle,
+                  product.image,
+                  product.datasheet
+                )"
                 v-html="highlight(product.title)"
               />
               <li v-if="filteredProducts.length === 0" class="no-item-found">
@@ -86,12 +93,14 @@ export default {
         this.active = !this.active
       }
     },
-    showPopup (title, category, price, newArticle) {
+    showPopup (title, category, price, newArticle, image, datasheet) {
       const currentItem = {
         title,
         category,
         price,
-        newArticle
+        newArticle,
+        image,
+        datasheet
       }
 
       this.$store.dispatch('addItem', currentItem)
