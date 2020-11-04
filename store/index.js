@@ -4,11 +4,7 @@ export const state = () => ({
   menuIsOpen: false,
   popupIsOpen: false,
   products: [],
-  selectedItem: [{
-    title: 'Test',
-    category: 'Werkzeuge',
-    price: 15.00
-  }],
+  selectedItem: [],
   isLoading: true
 })
 
@@ -20,11 +16,12 @@ export const mutations = {
   TOGGLE_MENU (state) {
     state.menuIsOpen = !state.menuIsOpen
   },
-  ADD_ITEM (state, { title, category, price }) {
+  ADD_ITEM (state, { title, category, price, newArticle = null }) {
     state.selectedItem = [{
       title,
       category,
-      price
+      price,
+      newArticle
     }]
   },
   TOOGLE_POPUP (state) {

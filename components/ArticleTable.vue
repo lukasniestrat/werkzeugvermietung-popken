@@ -52,6 +52,7 @@
         <li v-for="product in filteredProducts" :key="product.id" @click="showPopup(product.title, product.category, product.price)">
           <div class="products__accordionbody__table__title">
             {{ product.title }}
+            <span v-if="product.newArticle" class="badge badge--new">NEU</span>
           </div>
           <div class="products__accordionbody__table__price">
             {{ product.price }}

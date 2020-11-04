@@ -11,11 +11,12 @@
         v-for="(product, index) in products"
         :key="index"
         class="top__article"
-        @click="showPopup(product.title, product.category, product.price)"
+        @click="showPopup(product.title, product.category, product.price, product.newArticle)"
       >
         <div class="top__article__inner">
           <h3 class="top__article__inner__title">
             {{ product.title }}
+            <span v-if="product.newArticle" class="badge badge--new">NEU</span>
           </h3>
           <div class="top__article__inner__category">
             <div class="top__article__inner__category__icon">
@@ -65,11 +66,12 @@ export default {
     }
   },
   methods: {
-    showPopup (title, category, price) {
+    showPopup (title, category, price, newArticle) {
       const currentItem = {
         title,
         category,
-        price
+        price,
+        newArticle
       }
 
       this.$store.dispatch('addItem', currentItem)

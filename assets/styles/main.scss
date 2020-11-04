@@ -156,6 +156,19 @@ body {
   margin: 50px 0;
 }
 
+.badge {
+  background-color: $red;
+  border-radius: 2px;
+  color: #fff;
+  display: inline-block;
+  font-size: 0.5625rem;
+  margin-left: 5px;
+  margin-top: -2px;
+  padding: 2px 4px;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+
 /** General Styles **/
 ul {
   margin: 0;

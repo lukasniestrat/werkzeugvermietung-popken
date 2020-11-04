@@ -7,7 +7,10 @@
           :key="index"
           class="popup__inner__header"
         >
-          <h3>{{ product.title }}</h3>
+          <h3>
+            {{ product.title }}
+            <span v-if="product.newArticle" class="badge badge--new">NEU</span>
+          </h3>
           <div class="popup__inner__header__category">
             <Tools v-if="product.category === 'Werkzeuge'" :height="14" />
             <Car v-if="product.category === 'Anhänger'" :height="14" />
@@ -17,7 +20,7 @@
             {{ product.category }}
           </div>
           <div class="popup__inner__header__price">
-            Preis: {{ product.price }}
+            Preis: {{ product.price }} / Miettag
           </div>
         </div>
         <div class="popup__inner__content">
@@ -141,13 +144,13 @@ export default {
     border-radius: 50%;
     color: #ffffff;
     cursor: pointer;
-    height: 35px;
+    height: 36px;
     outline: 0;
     position: absolute;
     right: -15px;
     top: -15px;
     transition: all 0.15s ease-in-out;
-    width: 35px;
+    width: 36px;
 
     &:hover {
       background-color: $grey;
@@ -155,6 +158,8 @@ export default {
 
     svg {
       transform: rotate(-45deg);
+      margin-top: 4px;
+      margin-right: 1px;
     }
   }
 }
