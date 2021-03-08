@@ -2,8 +2,8 @@
   <div class="section section--spacing">
     <div class="section__inner">
       <h2>
-        <Star color="grey" :height="20" />
-        Unsere Top-Produkte
+        <span class="badge badge--new badge--big">NEU</span>
+        Unsere neuen Produkte
       </h2>
     </div>
     <div class="section__inner">
@@ -11,11 +11,19 @@
         v-for="(product, index) in products"
         :key="index"
         class="top__article"
-        @click="showPopup(product.title, product.category, product.price)"
+        @click="showPopup(
+          product.title,
+          product.category,
+          product.price,
+          product.newArticle,
+          product.image,
+          product.datasheet
+        )"
       >
         <div class="top__article__inner">
           <h3 class="top__article__inner__title">
             {{ product.title }}
+            <span class="badge badge--new">NEU</span>
           </h3>
           <div class="top__article__inner__category">
             <div class="top__article__inner__category__icon">
@@ -33,9 +41,6 @@
             {{ product.price }}
           </div>
         </div>
-        <div class="top__article__star">
-          <Star color="yellow" :height="20" />
-        </div>
       </article>
     </div>
   </div>
@@ -45,7 +50,6 @@
 import Car from './icons/Car.vue'
 import Cocktail from './icons/Cocktail.vue'
 import Paper from './icons/Paper.vue'
-import Star from './icons/Star.vue'
 import Tools from './icons/Tools.vue'
 import Tree from './icons/Tree.vue'
 
@@ -54,7 +58,6 @@ export default {
     Car,
     Cocktail,
     Paper,
-    Star,
     Tools,
     Tree
   },
@@ -65,11 +68,14 @@ export default {
     }
   },
   methods: {
-    showPopup (title, category, price) {
+    showPopup (title, category, price, newArticle, image, datasheet) {
       const currentItem = {
         title,
         category,
-        price
+        price,
+        newArticle,
+        image,
+        datasheet
       }
 
       this.$store.dispatch('addItem', currentItem)
@@ -135,12 +141,6 @@ export default {
       font-weight: 700;
       margin-top: auto;
     }
-  }
-
-  &__star {
-    bottom: 10px;
-    position: absolute;
-    right: 10px;
   }
 }
 

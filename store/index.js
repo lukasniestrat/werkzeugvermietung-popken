@@ -4,25 +4,33 @@ export const state = () => ({
   menuIsOpen: false,
   popupIsOpen: false,
   products: [],
-  selectedItem: [{
-    title: 'Test',
-    category: 'Werkzeuge',
-    price: 15.00
-  }]
+  selectedItem: [],
+  isLoading: true
 })
 
 export const mutations = {
   SAVE_PRODUCTS (state, products) {
     state.products = products
+    state.isLoading = false
   },
   TOGGLE_MENU (state) {
     state.menuIsOpen = !state.menuIsOpen
   },
-  ADD_ITEM (state, { title, category, price }) {
+  ADD_ITEM (state, {
+    title,
+    category,
+    price,
+    newArticle = null,
+    image = null,
+    datasheet = null
+  }) {
     state.selectedItem = [{
       title,
       category,
-      price
+      price,
+      newArticle,
+      image,
+      datasheet
     }]
   },
   TOOGLE_POPUP (state) {
@@ -51,9 +59,9 @@ export const actions = {
 
 export const getters = {
   allProducts: state => state.products,
-  topProducts: (state) => {
+  newProducts: (state) => {
     return state.products.filter((product) => {
-      return product.topArticle
+      return product.newArticle
     })
   },
   tools: (state) => {
@@ -83,5 +91,6 @@ export const getters = {
   },
   openMenu: state => state.menuIsOpen,
   openPopup: state => state.popupIsOpen,
-  popupItem: state => state.selectedItem
+  popupItem: state => state.selectedItem,
+  loading: state => state.isLoading
 }

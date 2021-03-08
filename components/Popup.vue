@@ -1,14 +1,20 @@
 <template>
   <div>
     <div v-if="popupIsOpen" class="popup">
-      <div class="popup__inner">
-        <div
-          v-for="(product, index) in item"
-          :key="index"
-          class="popup__inner__header"
-        >
-          <h3>{{ product.title }}</h3>
-          <div class="popup__inner__header__category">
+      <div
+        v-for="(product, index) in item"
+        :key="index"
+        class="popup__inner"
+      >
+        <div v-if="product.image" class="popup__inner__header">
+          <img :src="product.image" :alt="product.title" :title="product.title">
+        </div>
+        <div class="popup__inner__body">
+          <h3>
+            {{ product.title }}
+            <span v-if="product.newArticle" class="badge badge--new">NEU</span>
+          </h3>
+          <div class="popup__inner__body__category">
             <Tools v-if="product.category === 'Werkzeuge'" :height="14" />
             <Car v-if="product.category === 'Anhänger'" :height="14" />
             <Cocktail v-if="product.category === 'Partyzeltzubehör'" :height="14" />
@@ -16,11 +22,15 @@
             <Tree v-if="product.category === 'Gartengeräte'" :height="14" />
             {{ product.category }}
           </div>
-          <div class="popup__inner__header__price">
-            Preis: {{ product.price }}
+          <div class="popup__inner__body__price">
+            Preis: {{ product.price }} / Miettag
           </div>
+          <a v-if="product.datasheet" :href="product.datasheet" class="popup__inner__body__datasheet" target="_blank">
+            <File color="white" :height="18" />
+            <span>Datenblatt</span>
+          </a>
         </div>
-        <div class="popup__inner__content">
+        <div class="popup__inner__footer">
           <h4>Sie wollen diesen Artikel ausleihen?</h4>
           <p>Kein Problem! Rufen Sie uns einfach an</p>
           <ul>
@@ -46,6 +56,7 @@
 <script>
 import Car from './icons/Car.vue'
 import Cocktail from './icons/Cocktail.vue'
+import File from './icons/File.vue'
 import Paper from './icons/Paper.vue'
 import Plus from './icons/Plus'
 import Tools from './icons/Tools.vue'
@@ -55,6 +66,7 @@ export default {
   components: {
     Car,
     Cocktail,
+    File,
     Paper,
     Plus,
     Tools,
@@ -95,10 +107,36 @@ export default {
   z-index: 999;
 
   &__inner {
-    padding: 50px;
     position: relative;
 
     &__header {
+      @media screen and (max-width: $medium) {
+        height: 200px;
+      }
+
+      border-radius: 10px 10px 0 0;
+      height: 300px;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+
+      img {
+        height: auto;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+      }
+    }
+
+    &__body {
+      @media screen and (max-width: $medium) {
+        padding: 20px;
+      }
+
+      padding: 35px;
+
       h3 {
         margin-bottom: 15px;
       }
@@ -118,10 +156,31 @@ export default {
         font-weight: 700;
         margin-top: 15px;
       }
+
+      &__datasheet {
+        align-items: center;
+        background-color: $grey;
+        color: #fff;
+        display: inline-flex;
+        font-size: 1rem;
+        font-weight: 700;
+        padding: 10px 20px;
+        border-radius: 5px;
+        margin-top: 15px;
+        text-align: center;
+
+        svg {
+          margin-right: 8px;
+        }
+      }
     }
 
-    &__content {
-      margin-top: 30px;
+    &__footer {
+      @media screen and (max-width: $medium) {
+        padding: 0px 20px 20px;
+      }
+
+      padding: 0px 35px 35px;
 
       ul {
         display: flex;
@@ -136,18 +195,18 @@ export default {
   }
 
   &__close {
-    background-color: $light-grey;
+    background-color: $red;
     border: 0;
     border-radius: 50%;
-    color: #ffffff;
+    color: $light-grey;
     cursor: pointer;
-    height: 35px;
+    height: 36px;
     outline: 0;
     position: absolute;
     right: -15px;
     top: -15px;
     transition: all 0.15s ease-in-out;
-    width: 35px;
+    width: 36px;
 
     &:hover {
       background-color: $grey;
@@ -155,6 +214,8 @@ export default {
 
     svg {
       transform: rotate(-45deg);
+      margin-top: 4px;
+      margin-right: 1px;
     }
   }
 }

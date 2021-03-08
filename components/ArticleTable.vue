@@ -49,9 +49,21 @@
         </div>
       </div>
       <ul class="products__accordionbody__table">
-        <li v-for="product in filteredProducts" :key="product.id" @click="showPopup(product.title, product.category, product.price)">
+        <li
+          v-for="product in filteredProducts"
+          :key="product.id"
+          @click="showPopup(
+            product.title,
+            product.category,
+            product.price,
+            product.newArticle,
+            product.image,
+            product.datasheet
+          )"
+        >
           <div class="products__accordionbody__table__title">
             {{ product.title }}
+            <span v-if="product.newArticle" class="badge badge--new">NEU</span>
           </div>
           <div class="products__accordionbody__table__price">
             {{ product.price }}
@@ -145,11 +157,14 @@ export default {
         this.showAllProducts = !this.showAllProducts
       }
     },
-    showPopup (title, category, price) {
+    showPopup (title, category, price, newArticle, image, datasheet) {
       const currentItem = {
         title,
         category,
-        price
+        price,
+        newArticle,
+        image,
+        datasheet
       }
 
       this.$store.dispatch('addItem', currentItem)

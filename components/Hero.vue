@@ -18,22 +18,30 @@
             placeholder="Suchen Sie nach einem Artikel..."
             type="text"
             class="search"
+            :disabled="isLoading"
             @focus="active = !active"
           >
           <div class="hero__search__icon">
             <Search color="light-grey" />
           </div>
+          <Loading v-if="isLoading" />
         </div>
         <div v-if="search && active" class="hero__results">
-          <div class="hero__results__inner">
+          <div class="hero__results__inner" :class="{'hero__results__inner--scroll': filteredProducts.length > 6}">
             <ul>
               <li
                 v-for="(product, index) in filteredProducts"
                 :key="index"
-                @click="showPopup(product.title, product.category, product.price)"
-              >
-                {{ product.title }}
-              </li>
+                @click="showPopup(
+                  product.title,
+                  product.category,
+                  product.price,
+                  product.newArticle,
+                  product.image,
+                  product.datasheet
+                )"
+                v-html="highlight(product.title)"
+              />
               <li v-if="filteredProducts.length === 0" class="no-item-found">
                 Leider keine Artikel gefunden...
               </li>
@@ -46,10 +54,12 @@
 </template>
 
 <script>
+import Loading from './Loading.vue'
 import Search from './icons/Search.vue'
 
 export default {
   components: {
+    Loading,
     Search
   },
   props: {
@@ -72,6 +82,9 @@ export default {
 
         return title.match(search)
       })
+    },
+    isLoading () {
+      return this.$store.getters.loading
     }
   },
   methods: {
@@ -80,21 +93,29 @@ export default {
         this.active = !this.active
       }
     },
-    showPopup (title, category, price) {
+    showPopup (title, category, price, newArticle, image, datasheet) {
       const currentItem = {
         title,
         category,
-        price
+        price,
+        newArticle,
+        image,
+        datasheet
       }
 
       this.$store.dispatch('addItem', currentItem)
       this.$store.dispatch('tooglePopup')
+    },
+    highlight (string) {
+      return string.replace(new RegExp(this.search, 'gi'), (match) => {
+        return '<span>' + match + '</span>'
+      })
     }
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '../assets/styles/variables';
 
 .hero {
@@ -155,11 +176,15 @@ export default {
       background-color: #fff;
       border-radius: 5px;
       box-shadow: 0 15px 20px rgba(64, 64, 64, 0.25);
-      overflow: hidden;
+
+      &--scroll {
+        max-height: 330px;
+        overflow-y: scroll;
+      }
 
       ul {
         li {
-          color: $grey;
+          color: $light-grey;
           cursor: pointer;
           font-size: 1rem;
           height: 55px;
@@ -167,6 +192,11 @@ export default {
           padding: 0 25px;
           overflow: hidden;
           transition: all 0.15s ease-in-out;
+
+          span {
+            color: $grey;
+            font-weight: 700;
+          }
 
           &.no-item-found {
             color: $light-grey;

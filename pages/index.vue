@@ -53,8 +53,8 @@
     <AppHeader />
     <AppHero :products="allProducts" />
     <AppContact />
-    <section class="top-products">
-      <AppTopProducts :products="topProducts" />
+    <section class="new-products">
+      <AppNewProducts :products="newProducts" />
     </section>
     <section id="werkzeuge-garten" class="section section--spacing section--spacing--nosm">
       <div class="section__inner">
@@ -99,7 +99,7 @@ import Header from '~/components/Header.vue'
 import Hero from '~/components/Hero.vue'
 import Popup from '~/components/Popup.vue'
 import SpecialOffer from '~/components/SpecialOffer'
-import TopProducts from '~/components/TopProducts'
+import NewProducts from '~/components/NewProducts'
 
 export default {
   components: {
@@ -110,14 +110,14 @@ export default {
     AppHero: Hero,
     AppPopup: Popup,
     AppSpecialOffer: SpecialOffer,
-    AppTopProducts: TopProducts
+    AppNewProducts: NewProducts
   },
   computed: {
     allProducts () {
       return this.$store.getters.allProducts
     },
-    topProducts () {
-      return this.$store.getters.topProducts
+    newProducts () {
+      return this.$store.getters.newProducts
     },
     gardenTools () {
       return this.$store.getters.gardenTools
