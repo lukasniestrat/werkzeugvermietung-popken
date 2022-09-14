@@ -10,8 +10,7 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "ci:clean": "rimraf ./dist",
-    "ci:build": "nuxt build"
+    "clean": "rimraf ./dist"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.2",
