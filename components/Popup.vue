@@ -24,6 +24,9 @@
           </div>
           <div class="popup__inner__body__price">
             Preis: {{ product.price }} / Miettag
+            <span v-if="product.description">
+              <p>{{ product.description }}</p>
+            </span>
           </div>
           <a v-if="product.datasheet" :href="product.datasheet" class="popup__inner__body__datasheet" target="_blank">
             <File color="white" :height="18" />
@@ -31,18 +34,25 @@
           </a>
         </div>
         <div class="popup__inner__footer">
-          <h4>Sie wollen diesen Artikel ausleihen?</h4>
-          <p>Kein Problem! Rufen Sie uns einfach an</p>
-          <ul>
-            <li>
-              Tel: <strong>0 49 41 / 98 26 89</strong><br>
-              Erreichbar: 07:00 - 20:00 Uhr
-            </li>
-            <li>
-              Mobil: <strong>0170 / 99 50 80 2</strong><br>
-              Mobil: <strong>0152 / 58 40 63 75</strong>
-            </li>
-          </ul>
+          <div class="popup__inner__footer--block">
+            <h4>Sie wollen diesen Artikel ausleihen?</h4>
+            <p>Kein Problem! Rufen Sie uns einfach an</p>
+            <ul>
+              <li>
+                Tel: <strong>0 49 41 / 98 26 89</strong><br>
+                Erreichbar: 07:00 - 20:00 Uhr
+              </li>
+              <li>
+                Mobil: <strong>0170 / 99 50 80 2</strong><br>
+                Mobil: <strong>0152 / 58 40 63 75</strong>
+              </li>
+            </ul>
+          </div>
+          <div class="popup__inner__footer--block">
+            <h4>Probleme beim Transport?</h4>
+            <p>Mieten Sie für 10,00 € / Miettag einen Anhänger von uns zum Transport dazu!*</p>
+            <i>* Das Angebot gilt nur in Verbindung mit einem Leihgerät welches zum Transport einen Anhänger benötigt. Die Ausleihe eines Anhängers ohne ein Mietgerät ist nicht möglich! </i>
+          </div>
         </div>
         <button class="popup__close" @click="closePopup">
           <Plus color="white" :height="18" />
@@ -182,6 +192,14 @@ export default {
 
       padding: 0px 35px 35px;
 
+      &--block {
+        margin-bottom: 25px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
       ul {
         display: flex;
 
@@ -190,6 +208,10 @@ export default {
           font-size: 0.85rem;
           list-style: none;
         }
+      }
+
+      i {
+        font-size: 0.65rem;
       }
     }
   }

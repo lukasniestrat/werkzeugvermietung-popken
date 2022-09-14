@@ -78,11 +78,11 @@
               <div class="footer__info__content">
                 Mo. - Fr.:<br>
                 07:30 - 10:00 Uhr<br>
-                14:30 - 18:00 Uhr<br><br>
+                15:00 - 17:00 Uhr<br><br>
 
                 Sa.:<br>
-                07:30 - 10:00 Uhr<br>
-                14:30 - 17:00 Uhr<br>
+                07:00 - 10:00 Uhr<br>
+                15:00 - 17:00 Uhr<br>
               </div>
             </li>
           </ul>

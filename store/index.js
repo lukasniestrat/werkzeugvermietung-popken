@@ -22,7 +22,8 @@ export const mutations = {
     price,
     newArticle = null,
     image = null,
-    datasheet = null
+    datasheet = null,
+    description = null
   }) {
     state.selectedItem = [{
       title,
@@ -30,7 +31,8 @@ export const mutations = {
       price,
       newArticle,
       image,
-      datasheet
+      datasheet,
+      description
     }]
   },
   TOOGLE_POPUP (state) {
@@ -41,7 +43,11 @@ export const mutations = {
 export const actions = {
   loadProducts ({ commit }) {
     axios.get('/data/products.json').then((response) => {
-      commit('SAVE_PRODUCTS', response.data)
+      const productArray = []
+      const sortedProducts = response.data.sort((a, b) => parseFloat(b.id) - parseFloat(a.id))
+
+      productArray.push(sortedProducts)
+      commit('SAVE_PRODUCTS', sortedProducts)
     }).catch((error) => {
       throw new Error(`API ${error}`)
     })
