@@ -1,15 +1,17 @@
 <template>
-  <section v-if="specialOffer[0].active === true" class="specialoffer">
-    <div class="section">
-      <div class="section__inner section__inner--small section__inner--align-center section__inner--justify-center">
-        <div class="specialoffer__icon">
-          <Bullhorn color="white" />
-        </div>
-        <div class="specialoffer__text">
-          {{ specialOffer[0].text }}
+  <section v-if="specialOffer[0].active === true">
+    <a class="specialoffer" :href="specialOffer[0].link" :target="specialOffer[0].blank ? '_blank' : '_self'">
+      <div class="section">
+        <div class="section__inner section__inner--small section__inner--align-center section__inner--justify-center">
+          <div class="specialoffer__icon">
+            <Bullhorn color="white" />
+          </div>
+          <div class="specialoffer__text">
+            {{ specialOffer[0].text }}
+          </div>
         </div>
       </div>
-    </div>
+    </a>
   </section>
 </template>
 
@@ -25,7 +27,9 @@ export default {
     return {
       specialOffer: [{
         active: false,
-        text: 'Aktuell kein Angebot verfügbar'
+        text: 'Aktuell kein Angebot verfügbar',
+        link: '#',
+        blank: false
       }]
     }
   },
@@ -46,6 +50,7 @@ export default {
   background-color: $red;
   color: #fff;
   cursor: pointer;
+  display: block;
   font-size: 0.85rem;
   padding: 10px 0;
   text-align: center;

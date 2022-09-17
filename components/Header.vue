@@ -69,6 +69,18 @@
               <span itemprop="name">Flyer</span>
             </a>
           </li>
+          <li role="menuitem" class="header__nav__main__item" @click="openMenu">
+            <a
+              href="https://hoppsala-huepfburgen.de/"
+              itemprop="url"
+              tabindex="0"
+              target="_blank"
+              title="Hoppsala Hüpfburgen"
+            >
+              <Fort />
+              <span itemprop="name">Hüpfburgen</span>
+            </a>
+          </li>
           <li role="menuitem" class=" header__nav__main__item" @click="openMenu">
             <a
               href="#kontakt"
@@ -116,6 +128,7 @@ import File from './icons/File.vue'
 import Paper from './icons/Paper.vue'
 import Phone from './icons/Phone.vue'
 import Tools from './icons/Tools.vue'
+import Fort from './icons/Fort.vue'
 
 export default {
   components: {
@@ -124,7 +137,8 @@ export default {
     File,
     Paper,
     Phone,
-    Tools
+    Tools,
+    Fort
   },
   computed: {
     menuOpen () {
@@ -217,7 +231,7 @@ export default {
         a {
           @media screen and (min-width: $large) {
             font-size: 1rem;
-            padding: 5px 20px;
+            padding: 5px 15px;
           }
 
           display: inline-block;
