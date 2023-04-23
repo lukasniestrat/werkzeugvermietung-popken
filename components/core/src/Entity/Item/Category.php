@@ -14,10 +14,15 @@ class Category
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $title = null;
+    private string $title;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $description = null;
+
+    public function __construct(string $title)
+    {
+        $this->title = $title;
+    }
 
     public function getId(): ?int
     {

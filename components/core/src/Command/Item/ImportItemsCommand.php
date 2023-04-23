@@ -1,5 +1,7 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
+
 namespace App\Command\Item;
 
 use App\Entity\Item\Category;
@@ -25,10 +27,9 @@ class ImportItemsCommand extends Command
         parent::__construct();
     }
 
-    protected function configure(): void
-    {
-    }
-
+    /**
+     * @throws \JsonException
+     */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
@@ -37,38 +38,39 @@ class ImportItemsCommand extends Command
         $categories = $this->categoryService->findAll();
 
         $productsJson = file_get_contents('public/data/products.json');
-        $decodedProducts = json_decode($productsJson, true, 512, JSON_THROW_ON_ERROR);
-        $totalCount = count($decodedProducts);
+        if ($productsJson) {
+            $decodedProducts = json_decode($productsJson, true, 512, JSON_THROW_ON_ERROR);
+            $totalCount = count($decodedProducts);
 
-        foreach ($decodedProducts as $product)
-        {
-            $category = $this->matchCategory($categories, $product);
-            $price =  rtrim($product['price'],'€');
-            $price = str_replace('ab ', '', $price);
-            $item = ItemFactory::createItem(
-                $product['title'],
-                (float) $price,
-                $product['description'] ?? null,
-                $product['image'] ?? null,
-                $product['datasheet'] ?? null,
-                $category,
-                $product['newArticle'] ?? false,
-                $product['topArticle'] ?? false,
-            );
+            foreach ($decodedProducts as $product) {
+                $category = $this->matchCategory($categories, $product);
+                $price = rtrim($product['price'], '€');
+                $price = str_replace('ab ', '', $price);
+                $item = ItemFactory::createItem(
+                    $product['title'],
+                    (float) $price,
+                    $product['description'] ?? null,
+                    $product['image'] ?? null,
+                    $product['datasheet'] ?? null,
+                    $category,
+                    $product['newArticle'] ?? false,
+                    $product['topArticle'] ?? false,
+                );
 
-            $this->itemService->save($item, true);
-            $itemCount++;
+                $this->itemService->save($item, true);
+                ++$itemCount;
+            }
+
+            $io->success($itemCount.'/'.$totalCount.' items are imported');
+
+            return Command::SUCCESS;
         }
 
-        $io->success($itemCount . '/' . $totalCount . ' items are imported');
-
-        return Command::SUCCESS;
+        return Command::FAILURE;
     }
 
     /**
      * @param Category[] $categories
-     * @param array $product
-     * @return Category|null
      */
     private function matchCategory(array $categories, array $product): ?Category
     {

@@ -1,11 +1,14 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
+
 namespace App\Tests\Factory\Item;
 
 use App\Entity\Item\Category;
 use App\Tests\Utils\ReflectionFactory;
 
-trait CategoryFactoryTrait {
+trait CategoryFactoryTrait
+{
     private function createCategory(
         string $title,
         string $description

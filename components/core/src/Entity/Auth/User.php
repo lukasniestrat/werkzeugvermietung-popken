@@ -1,5 +1,7 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
+
 namespace App\Entity\Auth;
 
 use App\Repository\Auth\UserRepository;
@@ -14,13 +16,20 @@ class User
     private ?int $id = null;
 
     #[ORM\Column(length: 255, unique: true)]
-    private ?string $username = null;
+    private string $username;
 
     #[ORM\Column(length: 255, unique: true)]
-    private ?string $email = null;
+    private string $email;
 
     #[ORM\Column(length: 255)]
-    private ?string $password = null;
+    private string $password;
+
+    public function __construct(string $username, string $email, string $password)
+    {
+        $this->username = $username;
+        $this->email = $email;
+        $this->password =$password;
+    }
 
     public function getId(): ?int
     {

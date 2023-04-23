@@ -1,5 +1,7 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
+
 namespace App\Service\Item;
 
 use App\Entity\Item\Category;
@@ -22,9 +24,6 @@ readonly class CategoryService
         return $this->categoryRepository->remove($category, $flush);
     }
 
-    /**
-     * @return array|null
-     */
     public function findAll(): ?array
     {
         return $this->categoryRepository->findAll();

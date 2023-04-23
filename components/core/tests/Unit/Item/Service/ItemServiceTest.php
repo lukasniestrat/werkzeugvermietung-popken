@@ -1,5 +1,7 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
+
 namespace App\Tests\Unit\Item\Service;
 
 use App\Repository\Item\ItemRepository;
@@ -11,12 +13,10 @@ use PHPUnit\Framework\TestCase;
 
 class ItemServiceTest extends TestCase
 {
-    use ItemFactoryTrait,
-        CategoryFactoryTrait;
+    use ItemFactoryTrait;
+    use CategoryFactoryTrait;
 
-    private ?ItemService $service = null;
-
-    private ItemRepository | MockObject $itemRepository;
+    private ItemRepository|MockObject $itemRepository;
 
     protected function setUp(): void
     {
@@ -24,7 +24,7 @@ class ItemServiceTest extends TestCase
         $this->itemRepository = $this->getMockBuilder(ItemRepository::class)->disableOriginalConstructor()->getMock();
     }
 
-    public function test_it_saves_item(): void
+    public function testItSavesItem(): void
     {
         $item = $this->createItem(
             $this->createCategory('Testcategory', 'Testdescription'),
@@ -36,7 +36,7 @@ class ItemServiceTest extends TestCase
         $this->getService()->save($item);
     }
 
-    public function test_it_removes_item(): void
+    public function testItRemovesItem(): void
     {
         $item = $this->createItem(
             $this->createCategory('Testcategory', 'Testdescription'),
@@ -49,9 +49,8 @@ class ItemServiceTest extends TestCase
     }
 
     private function getService(
-        ItemRepository | MockObject $itemRepository = null,
-    ): ItemService
-    {
+        ItemRepository|MockObject $itemRepository = null,
+    ): ItemService {
         return new ItemService(
             $itemRepository ?? $this->itemRepository,
         );

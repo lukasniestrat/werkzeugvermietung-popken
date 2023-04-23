@@ -1,5 +1,7 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
+
 namespace App\Entity\Item;
 
 use App\Repository\Item\ItemRepository;
@@ -14,13 +16,13 @@ class Item
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $title = null;
+    private string $title;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $description = null;
 
     #[ORM\Column]
-    private ?float $price = null;
+    private float $price;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $imageUrl = null;
@@ -29,13 +31,13 @@ class Item
     private ?string $dataSheetUrl = null;
 
     #[ORM\Column]
-    private ?bool $newArticle = null;
+    private bool $newArticle = true;
 
     #[ORM\Column]
-    private ?bool $topArticle = null;
+    private bool $topArticle = false;
 
     #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'items')]
-    private Category $category;
+    private ?Category $category = null;
 
     public function __construct(string $title, float $price)
     {

@@ -1,5 +1,7 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
+
 namespace App\Factory\Item;
 
 use App\Entity\Item\Category;
@@ -16,8 +18,7 @@ class ItemFactory
         ?Category $category,
         bool $newArticle = false,
         bool $topArticle = false,
-    ): Item
-    {
+    ): Item {
         $item = new Item($title, $price);
         $item->setCategory($category)
             ->setDescription($description)

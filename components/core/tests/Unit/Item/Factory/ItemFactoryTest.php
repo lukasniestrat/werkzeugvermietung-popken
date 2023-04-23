@@ -1,5 +1,7 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
+
 namespace App\Tests\Unit\Item\Factory;
 
 use App\Factory\Item\ItemFactory;
@@ -15,7 +17,7 @@ class ItemFactoryTest extends TestCase
         parent::setUp();
     }
 
-    public function test_it_creates_item(): void
+    public function testItCreatesItem(): void
     {
         $category = $this->createCategory('Test', 'This is a test');
         $item = ItemFactory::createItem(
