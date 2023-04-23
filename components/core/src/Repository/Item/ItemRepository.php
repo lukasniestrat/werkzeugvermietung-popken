@@ -21,13 +21,15 @@ class ItemRepository extends ServiceEntityRepository
         parent::__construct($registry, Item::class);
     }
 
-    public function save(Item $entity, bool $flush = false): void
+    public function save(Item $item, bool $flush = false): Item
     {
-        $this->getEntityManager()->persist($entity);
+        $this->getEntityManager()->persist($item);
 
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+
+        return $item;
     }
 
     public function remove(Item $entity, bool $flush = false): void

@@ -37,6 +37,12 @@ class Item
     #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'items')]
     private Category $category;
 
+    public function __construct(string $title, float $price)
+    {
+        $this->title = $title;
+        $this->price = $price;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -126,12 +132,12 @@ class Item
         return $this;
     }
 
-    private function getCategory(): Category
+    public function getCategory(): ?Category
     {
         return $this->category;
     }
 
-    private function setCategory(Category $category): self
+    public function setCategory(?Category $category): self
     {
         $this->category = $category;
 
