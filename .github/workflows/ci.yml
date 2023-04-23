@@ -1,0 +1,32 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Create env file
+        run: |
+          touch components/core/.env
+          echo APP_SECRET=${{ secrets.APP_SECRET }} >> components/core/.env
+          echo DATABASE_URL=${{ secrets.DATABASE_URL }} >> components/core/.env
+          cat components/core/.env
+      - name: Install dependencies
+        uses: php-actions/composer@v6
+        with:
+          php_version: "8.2"
+          working_dir: components/core
+      - name: PHPUnit Tests
+        uses: php-actions/phpunit@master
+        with:
+          php_extensions: xdebug
+          bootstrap: components/core/vendor/autoload.php
+          configuration: components/core/phpunit.xml.dist
+          args: --coverage-text
+          php_version: "8.2"
+        env:
+          XDEBUG_MODE: coverage
+          TEST_NAME: Scarlett
