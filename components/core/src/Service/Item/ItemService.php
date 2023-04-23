@@ -16,4 +16,9 @@ readonly class ItemService
     {
         return $this->itemRepository->save($item, $flush);
     }
+
+    public function remove(Item $item, bool $flush = false): Item
+    {
+        return $this->itemRepository->remove($item, $flush);
+    }
 }
