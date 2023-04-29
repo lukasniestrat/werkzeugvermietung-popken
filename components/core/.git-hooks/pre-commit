@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+PROJECT_ROOT="$(git rev-parse --show-toplevel)"
+CORE_ROOT="$PROJECT_ROOT/components/core"
+AUTOLOAD_FILE="$CORE_ROOT/vendor/autoload.php"
+
+function onExit() {
+  if [[ $? != 0 ]]; then
+    echo "Fix errors before commit"
+  fi
+}
+trap onExit EXIT
+
+set -e
+
+cd "${CORE_ROOT}"
+
+PHP_FILES="$(git diff --name-only --cached --diff-filter=ACMR HEAD "${CORE_ROOT}" | grep -E '\.(php)$' | awk -v dir="$PROJECT_ROOT" '$0=dir"/"$0')"
+
+if [[ -n "$PHP_FILES" ]]; then
+  echo "1. Fix Code-Style"
+  "${CORE_ROOT}"/vendor/bin/php-cs-fixer fix --config="${CORE_ROOT}"/.php-cs-fixer.dist.php "${PHP_FILES}"
+
+  echo "2. Perform static analysis"
+  "${CORE_ROOT}"/vendor/bin/phpstan.phar analyze --configuration="${CORE_ROOT}"/phpstan.neon.dist --autoload-file="${AUTOLOAD_FILE}"
+fi
+
+git add ${PHP_FILES}
