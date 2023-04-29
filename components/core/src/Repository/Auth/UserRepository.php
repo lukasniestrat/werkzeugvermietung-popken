@@ -1,5 +1,7 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
+
 namespace App\Repository\Auth;
 
 use App\Entity\Auth\User;
@@ -21,21 +23,25 @@ class UserRepository extends ServiceEntityRepository
         parent::__construct($registry, User::class);
     }
 
-    public function save(User $entity, bool $flush = false): void
+    public function save(User $user, bool $flush = false): User
     {
-        $this->getEntityManager()->persist($entity);
+        $this->getEntityManager()->persist($user);
 
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+
+        return $user;
     }
 
-    public function remove(User $entity, bool $flush = false): void
+    public function remove(User $user, bool $flush = false): User
     {
-        $this->getEntityManager()->remove($entity);
+        $this->getEntityManager()->remove($user);
 
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+
+        return $user;
     }
 }
