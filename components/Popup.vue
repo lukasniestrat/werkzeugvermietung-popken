@@ -49,9 +49,14 @@
             </ul>
           </div>
           <div class="popup__inner__footer--block">
-            <h4>Probleme beim Transport?</h4>
-            <p>Mieten Sie für 10,00 € / Miettag einen Anhänger von uns zum Transport dazu!*</p>
-            <i>* Das Angebot gilt nur in Verbindung mit einem Leihgerät welches zum Transport einen Anhänger benötigt. Die Ausleihe eines Anhängers ohne ein Mietgerät ist nicht möglich! </i>
+            <div v-if="product.transport">
+              {{ product.transport }}
+            </div>
+            <div v-else>
+              <h4>Probleme beim Transport?</h4>
+              <p>Mieten Sie für 10,00 € / Miettag einen Anhänger von uns zum Transport dazu!*</p>
+              <i>* Das Angebot gilt nur in Verbindung mit einem Leihgerät welches zum Transport einen Anhänger benötigt. Die Ausleihe eines Anhängers ohne ein Mietgerät ist nicht möglich! </i>
+            </div>
           </div>
         </div>
         <button class="popup__close" @click="closePopup">

@@ -22,7 +22,7 @@
                 <a href="#partyzeltzubehoer" title="Unser Partyzeltzubehör" tabindex="0">Partyzeltzubehör</a>
               </li>
               <li>
-                <a href="/produktflyer-2020.pdf" target="_blank" title="Unser aktueller Flyer" tabindex="0">Flyer</a>
+                <a href="/produktflyer-2023.pdf" target="_blank" title="Unser aktueller Flyer" tabindex="0">Flyer</a>
               </li>
               <li>
                 <a href="#kontakt" title="Nehmen Sie Kontakt zu uns auf" tabindex="0">Kontakt</a>

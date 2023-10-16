@@ -4,22 +4,22 @@
       <div class="section__inner">
         <div class="contact__info">
           <div class="contact__info__icon">
-            <Phone color="yellow" :height="25" />
-          </div>
-          <div class="contact__info__content">
-            Tel: <a href="tel:+494941982689" title="Rufen Sie uns an!">0 49 41 / 98 26 89</a>
-            <br>
-            Erreichbar: 07:00 - 20:00 Uhr
-          </div>
-        </div>
-        <div class="contact__info">
-          <div class="contact__info__icon">
             <Mobile color="yellow" :height="25" />
           </div>
           <div class="contact__info__content">
             Mobil: <a href="tel:+491709950802" title="Rufen Sie uns an!">0170 / 99 50 80 2</a>
             <br>
             Mobil: <a href="tel:+4915258406375" title="Rufen Sie uns an!">0152 / 58 40 63 75</a>
+          </div>
+        </div>
+        <div class="contact__info contact__info--red">
+          <div class="contact__info__icon">
+            <Phone color="white" :height="25" />
+          </div>
+          <div class="contact__info__content">
+            Tel: <a href="tel:+494941982689" title="Rufen Sie uns an!">0 49 41 / 98 26 89</a>
+            <br>
+            Erreichbar: 07:00 - 20:00 Uhr
           </div>
         </div>
         <div class="contact__info">
@@ -54,7 +54,6 @@ export default {
 
 .contact {
   background-color: $grey;
-  padding: 15px 0;
 
   &__info {
     @media screen and (min-width: $large) {
@@ -68,6 +67,16 @@ export default {
     font-size: 0.85rem;
     margin-bottom: 15px;
     text-align: left;
+    padding: 15px;
+
+    &--red {
+      background-color: red;
+
+      .contact__info__content {
+        font-size: 1rem;
+        line-height: 1.5rem;
+      }
+    }
 
     &:last-child {
       margin-bottom: 0;

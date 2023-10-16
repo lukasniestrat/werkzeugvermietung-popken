@@ -23,7 +23,8 @@ export const mutations = {
     newArticle = null,
     image = null,
     datasheet = null,
-    description = null
+    description = null,
+    transport = null
   }) {
     state.selectedItem = [{
       title,
@@ -32,7 +33,8 @@ export const mutations = {
       newArticle,
       image,
       datasheet,
-      description
+      description,
+      transport
     }]
   },
   TOOGLE_POPUP (state) {

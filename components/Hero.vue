@@ -38,7 +38,8 @@
                   product.price,
                   product.newArticle,
                   product.image,
-                  product.datasheet
+                  product.datasheet,
+                  product.transport
                 )"
                 v-html="highlight(product.title)"
               />
@@ -93,14 +94,15 @@ export default {
         this.active = !this.active
       }
     },
-    showPopup (title, category, price, newArticle, image, datasheet) {
+    showPopup (title, category, price, newArticle, image, datasheet, transport) {
       const currentItem = {
         title,
         category,
         price,
         newArticle,
         image,
-        datasheet
+        datasheet,
+        transport
       }
 
       this.$store.dispatch('addItem', currentItem)

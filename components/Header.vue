@@ -59,7 +59,7 @@
           </li>
           <li role="menuitem" class="header__nav__main__item" @click="openMenu">
             <a
-              href="/produktflyer-2020.pdf"
+              href="/produktflyer-2023.pdf"
               itemprop="url"
               tabindex="0"
               target="_blank"

@@ -58,7 +58,8 @@
             product.price,
             product.newArticle,
             product.image,
-            product.datasheet
+            product.datasheet,
+            product.transport
           )"
         >
           <div class="products__accordionbody__table__title">
@@ -83,12 +84,6 @@
         <Minus v-else color="grey" :height="13" />
         <span v-if="!showAllProducts">Alle Artikel {{ products.length }} anzeigen</span>
         <span v-else>Weniger Artikel anzeigen</span>
-      </div>
-      <div
-        v-if="headline === 'Anhänger'"
-        class="products__accordionheader__notice products__accordionheader__notice--spacing"
-      >
-        Preise für Halbtagsmieten auf Anfrage.
       </div>
     </div>
   </div>
@@ -157,14 +152,15 @@ export default {
         this.showAllProducts = !this.showAllProducts
       }
     },
-    showPopup (title, category, price, newArticle, image, datasheet) {
+    showPopup (title, category, price, newArticle, image, datasheet, transport) {
       const currentItem = {
         title,
         category,
         price,
         newArticle,
         image,
-        datasheet
+        datasheet,
+        transport
       }
 
       this.$store.dispatch('addItem', currentItem)

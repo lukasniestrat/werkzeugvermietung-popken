@@ -18,7 +18,8 @@
           product.newArticle,
           product.image,
           product.datasheet,
-          product.description
+          product.description,
+          product.transport
         )"
       >
         <div class="top__article__inner">
@@ -69,7 +70,7 @@ export default {
     }
   },
   methods: {
-    showPopup (title, category, price, newArticle, image, datasheet, description) {
+    showPopup (title, category, price, newArticle, image, datasheet, description, transport) {
       const currentItem = {
         title,
         category,
@@ -77,7 +78,8 @@ export default {
         newArticle,
         image,
         datasheet,
-        description
+        description,
+        transport
       }
 
       this.$store.dispatch('addItem', currentItem)
