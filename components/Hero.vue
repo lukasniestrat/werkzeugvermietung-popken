@@ -106,7 +106,7 @@ export default {
       }
 
       this.$store.dispatch('addItem', currentItem)
-      this.$store.dispatch('tooglePopup')
+      this.$store.dispatch('togglePopup')
     },
     highlight (string) {
       return string.replace(new RegExp(this.search, 'gi'), (match) => {

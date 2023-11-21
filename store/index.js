@@ -37,7 +37,7 @@ export const mutations = {
       transport
     }]
   },
-  TOOGLE_POPUP (state) {
+  TOGGLE_POPUP (state) {
     state.popupIsOpen = !state.popupIsOpen
   }
 }
@@ -60,8 +60,8 @@ export const actions = {
   addItem ({ commit }, item) {
     commit('ADD_ITEM', item)
   },
-  tooglePopup ({ commit }) {
-    commit('TOOGLE_POPUP')
+  togglePopup ({ commit }) {
+    commit('TOGGLE_POPUP')
   }
 }
 
@@ -95,6 +95,11 @@ export const getters = {
   trailer: (state) => {
     return state.products.filter((product) => {
       return product.category === 'Anhänger'
+    })
+  },
+  beerVehicles: (state) => {
+    return state.products.filter((product) => {
+      return product.category === 'Bierwagen'
     })
   },
   openMenu: state => state.menuIsOpen,

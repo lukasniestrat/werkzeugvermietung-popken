@@ -97,7 +97,7 @@ export default {
   },
   methods: {
     closePopup () {
-      this.$store.dispatch('tooglePopup')
+      this.$store.dispatch('togglePopup')
     }
   }
 }

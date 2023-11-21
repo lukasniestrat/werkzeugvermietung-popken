@@ -10,6 +10,7 @@
         <Paper v-if="headline === 'WC-Wagen'" color="grey" :height="20" />
         <Tools v-if="headline === 'Werkzeuge'" color="grey" :height="20" />
         <Tree v-if="headline === 'Gartengeräte'" color="grey" :height="20" />
+        <Beer v-if="headline === 'Bierwagen'" color="grey" :height="20" />
       </div>
       <h2>{{ headline }}</h2>
       <div class="products__accordionheader__icon">
@@ -22,6 +23,12 @@
       class="products__accordionheader__notice"
     >
       Hinweis: Die Preise für das Partyzeltzubehör gelten jeweils für 3 Tage.
+    </div>
+    <div
+      v-if="headline === 'Bierwagen'"
+      class="products__accordionheader__notice"
+    >
+      Hinweis: Kohlensäure nur bei Bierabnahme inkl.
     </div>
     <div
       class="products__accordionbody"
@@ -90,6 +97,7 @@
 </template>
 
 <script>
+import Beer from './icons/Beer.vue'
 import Car from './icons/Car.vue'
 import Cocktail from './icons/Cocktail.vue'
 import Minus from './icons/Minus.vue'
@@ -101,6 +109,7 @@ import Tree from './icons/Tree.vue'
 
 export default {
   components: {
+    Beer,
     Car,
     Cocktail,
     Minus,
@@ -164,7 +173,7 @@ export default {
       }
 
       this.$store.dispatch('addItem', currentItem)
-      this.$store.dispatch('tooglePopup')
+      this.$store.dispatch('togglePopup')
     }
   }
 }

@@ -22,6 +22,9 @@
                 <a href="#partyzeltzubehoer" title="Unser Partyzeltzubehör" tabindex="0">Partyzeltzubehör</a>
               </li>
               <li>
+                <a href="#bierwagen" title="Unsere Bierwagen" tabindex="0">Bierwagen</a>
+              </li>
+              <li>
                 <a href="/produktflyer-2023.pdf" target="_blank" title="Unser aktueller Flyer" tabindex="0">Flyer</a>
               </li>
               <li>

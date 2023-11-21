@@ -57,6 +57,17 @@
               <span itemprop="name">Partyzeltzubehör</span>
             </a>
           </li>
+          <li role="menuitem" class=" header__nav__main__item" @click="openMenu">
+            <a
+              href="#bierwagen"
+              itemprop="url"
+              tabindex="0"
+              title="Unsere Bierwagen"
+            >
+              <Beer />
+              <span itemprop="name">Bierwagen</span>
+            </a>
+          </li>
           <li role="menuitem" class="header__nav__main__item" @click="openMenu">
             <a
               href="/produktflyer-2023.pdf"
@@ -122,6 +133,7 @@
 </template>
 
 <script>
+import Beer from './icons/Beer.vue'
 import Car from './icons/Car.vue'
 import Cocktail from './icons/Cocktail.vue'
 import File from './icons/File.vue'
@@ -132,6 +144,7 @@ import Fort from './icons/Fort.vue'
 
 export default {
   components: {
+    Beer,
     Car,
     Cocktail,
     File,
@@ -185,7 +198,7 @@ export default {
     @media screen and (min-width: $large) {
       border: 0;
       display: block;
-      flex: 3;
+      flex: 4;
       height: 100%;
       left: 0;
       padding: 0;

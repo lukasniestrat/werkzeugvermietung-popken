@@ -71,6 +71,7 @@
     <section id="partyzeltzubehoer" class="section section--spacing section--spacing--nosm">
       <div class="section__inner">
         <AppArticleTable :products="partySupplies" headline="Partyzeltzubehör" />
+        <AppArticleTable :products="beerVehicles" headline="Bierwagen" />
       </div>
     </section>
     <section class="about">
@@ -124,6 +125,9 @@ export default {
     },
     partySupplies () {
       return this.$store.getters.partySupplies
+    },
+    beerVehicles () {
+      return this.$store.getters.beerVehicles
     },
     toilets () {
       return this.$store.getters.toilets
