@@ -28,7 +28,7 @@ class User
     {
         $this->username = $username;
         $this->email = $email;
-        $this->password =$password;
+        $this->password = $password;
     }
 
     public function getId(): ?int

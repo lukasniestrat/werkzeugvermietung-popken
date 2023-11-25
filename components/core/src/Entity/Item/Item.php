@@ -8,7 +8,7 @@ use App\Repository\Item\ItemRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ItemRepository::class)]
-class Item
+class Item implements \Serializable
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -144,5 +144,39 @@ class Item
         $this->category = $category;
 
         return $this;
+    }
+
+    public function serialize(): array
+    {
+        return [
+            'id' => $this->getId(),
+            'title' => $this->getTitle(),
+            'description' => $this->getDescription(),
+            'price' => $this->getPrice(),
+            'dataSheetUrl' => $this->getDataSheetUrl(),
+            'imageUrl' => $this->getImageUrl(),
+            'newArticle' => $this->isNewArticle(),
+            'topArticle' => $this->isTopArticle(),
+        ];
+    }
+
+    public function unserialize(string $data): void
+    {
+        $this->title = $data['title'];
+        $this->price = (float) $data['price'];
+    }
+
+    public function __serialize(): array
+    {
+        return [
+            'id' => $this->getId(),
+            'title' => $this->getTitle(),
+        ];
+    }
+
+    public function __unserialize(array $data): void
+    {
+        $this->title = $data['title'];
+        $this->price = $data['price'];
     }
 }

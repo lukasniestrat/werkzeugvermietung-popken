@@ -6,7 +6,7 @@ use App\Repository\Item\CategoryRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
-class Category
+class Category implements \Serializable
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -51,5 +51,35 @@ class Category
         $this->description = $description;
 
         return $this;
+    }
+
+    public function serialize(): array
+    {
+        return [
+            'id' => $this->getId(),
+            'title' => $this->getTitle(),
+            'description' => $this->getDescription(),
+        ];
+    }
+
+    public function unserialize(string $data)
+    {
+        $this->title = $data['title'];
+        $this->description = $data['description'];
+    }
+
+    public function __serialize(): array
+    {
+        return [
+            'id' => $this->getId(),
+            'title' => $this->getTitle(),
+            'description' => $this->getDescription(),
+        ];
+    }
+
+    public function __unserialize(array $data): void
+    {
+        $this->title = $data['title'];
+        $this->description = $data['description'];
     }
 }
